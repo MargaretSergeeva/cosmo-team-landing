@@ -64,6 +64,16 @@ input:focus,textarea:focus,button:focus-visible,a:focus-visible{outline:2px soli
 footer .in{max-width:1200px;margin:0 auto;padding:24px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font-size:13px;color:var(--muted)}
 footer a{color:var(--muted)}
 .draft{background:var(--nova);color:var(--bg);text-align:center;font-size:13px;padding:6px 16px;font-weight:600}
+.qlist{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+.q{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;padding:20px 24px;border-top:1px solid var(--line)}
+.q:first-child{border-top:0}
+.q p{margin:0;flex:999 1 420px;min-width:0;font-size:16px;line-height:24px}
+.q .n{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:13px;color:var(--nebula);margin-right:10px}
+.opts{display:flex;gap:8px;flex:1 0 auto}
+.opts button{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--text);font:inherit;font-size:14px;cursor:pointer}
+.opts button[aria-pressed=true]{background:var(--nebula);border-color:var(--nebula);color:var(--bg);font-weight:600}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.qres{background:var(--nebula-soft);border:1px solid var(--nebula);border-radius:12px;padding:32px;display:flex;flex-direction:column;gap:16px}
 </style>
 </head>
 <body>
@@ -109,6 +119,16 @@ footer a{color:var(--muted)}
 <section class="band"><div class="wrap" style="display:flex;flex-direction:column;gap:40px;padding:80px 24px">
   <div style="display:flex;flex-direction:column;gap:8px"><span class="eyebrow" data-k="painsEyebrow"></span><h2 data-k="painsTitle"></h2></div>
   <div class="grid" id="pains"></div>
+</div></section>
+
+<section id="quiz"><div class="wrap" style="display:flex;flex-direction:column;gap:32px">
+  <div style="display:flex;flex-direction:column;gap:8px"><span class="eyebrow c" id="qz-eyebrow"></span><h2 id="qz-title"></h2><p class="muted" style="margin:0;max-width:640px" id="qz-sub"></p></div>
+  <div class="qlist" id="qz-list"></div>
+  <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between">
+    <span class="muted" id="qz-progress" aria-live="polite"></span>
+    <button class="btn" type="button" id="qz-show"></button>
+  </div>
+  <div class="qres" id="qz-res" hidden aria-live="polite"></div>
 </div></section>
 
 <section id="check"><div class="wrap check">
@@ -230,6 +250,77 @@ var L = {
     fName: 'Name', fCompany: 'Unternehmen', fMsg: 'Was bremst Sie gerade am meisten?', fSend: 'Senden', fNote: 'Mit „Senden“ stimmen Sie unserer Datenschutzerklärung zu.'
   }
 };
+var Q = {
+  ru: {
+    eyebrow: 'Экспресс-проверка', title: 'Проверьте свой бизнес за 2 минуты',
+    sub: '11 вопросов. Ответы никуда не отправляются, результат считается прямо в браузере.',
+    opts: ['Да', 'Частично', 'Нет'], progress: 'Отвечено', of: 'из', show: 'Показать результат', hint: 'Ответьте на все вопросы, чтобы увидеть результат.',
+    points: 'баллов из 22', weak: 'Где стоит начать', restart: 'Пройти заново',
+    cats: { data: 'Данные и CRM', cost: 'Расходы на IT и ИИ', sec: 'Информационная безопасность', law: 'DSGVO и EU AI Act', team: 'Зависимость от одного человека', mkt: 'Сайт, клиенты и маркетинг' },
+    tiers: [['Стартовая площадка', 'Много рисков и ручной работы. Хорошая новость: быстрые улучшения дадут заметный эффект.'], ['Выход на орбиту', 'База есть, но в нескольких местах есть пробелы, которые стоят денег или несут риски.'], ['Стабильная орбита', 'Хороший уровень. Осталось точечно доработать слабые места.'], ['Открытый космос', 'Вы впереди большинства компаний. Можно думать о масштабировании и ИИ.']],
+    qs: ['Клиенты, заказы и финансы живут в одной связанной системе (CRM) с полной историей работы с клиентом?', 'Знаете, сколько платите за все IT-сервисы, и убирали ли ненужные за последний год?', 'Если используете ИИ, знаете, сколько он стоит и какую экономию даёт?', 'Есть ли у вас человек, который отвечает за информационную безопасность?', 'Есть ли резервные копии, и проверяли ли вы восстановление из них?', 'Сотрудники используют двухфакторную авторизацию и умеют распознавать фишинг?', 'Выполняете ли вы требования DSGVO: реестр обработки данных, договоры AVV, корректные cookie?', 'Знаете, подпадают ли ваши ИИ-инструменты под EU AI Act, и есть ли правила их использования?', 'Если IT-специалист уйдёт завтра, кто-то знает доступы и устройство систем?', 'Сайт удобен с телефона, и клиент может записаться, заказать или оплатить онлайн?', 'Знаете, сколько стоит клиент из каждого рекламного канала и на каком шаге посетители уходят с сайта?']
+  },
+  en: {
+    eyebrow: 'Quick check', title: 'Check your business in 2 minutes',
+    sub: '11 questions. Your answers aren’t sent anywhere; the result is calculated in your browser.',
+    opts: ['Yes', 'Partly', 'No'], progress: 'Answered', of: 'of', show: 'Show result', hint: 'Answer all questions to see your result.',
+    points: 'of 22 points', weak: 'Where to start', restart: 'Start over',
+    cats: { data: 'Data & CRM', cost: 'IT and AI costs', sec: 'Information security', law: 'GDPR & EU AI Act', team: 'Reliance on one person', mkt: 'Website, customers & marketing' },
+    tiers: [['Launch pad', 'Lots of risk and manual work. The good news: quick fixes will make a visible difference.'], ['Reaching orbit', 'The basics are there, but a few gaps cost money or carry risk.'], ['Stable orbit', 'A solid level. A few weak spots are left to fix.'], ['Open space', 'You’re ahead of most companies. Time to think about scaling and AI.']],
+    qs: ['Do customers, orders and finances live in one connected system (CRM) with the full customer history?', 'Do you know what you pay for all IT services, and have you cut unnecessary ones in the past year?', 'If you use AI, do you know what it costs and what it saves you?', 'Is someone in charge of information security?', 'Do you have backups, and have you tested restoring from them?', 'Do employees use two-factor authentication and recognise phishing?', 'Do you meet GDPR requirements: processing records, data processing agreements, proper cookie consent?', 'Do you know whether your AI tools fall under the EU AI Act, and are there rules for using them?', 'If your IT person left tomorrow, would anyone else know the access details and how systems work?', 'Is your website easy to use on a phone, and can customers book, order or pay online?', 'Do you know the cost per customer for each ad channel and at which step visitors leave your site?']
+  },
+  de: {
+    eyebrow: 'Schnellcheck', title: 'Prüfen Sie Ihr Unternehmen in 2 Minuten',
+    sub: '11 Fragen. Ihre Antworten werden nicht übertragen, das Ergebnis entsteht direkt im Browser.',
+    opts: ['Ja', 'Teilweise', 'Nein'], progress: 'Beantwortet', of: 'von', show: 'Ergebnis anzeigen', hint: 'Beantworten Sie alle Fragen, um Ihr Ergebnis zu sehen.',
+    points: 'von 22 Punkten', weak: 'Wo Sie ansetzen sollten', restart: 'Neu starten',
+    cats: { data: 'Daten & CRM', cost: 'IT- und KI-Kosten', sec: 'Informationssicherheit', law: 'DSGVO & EU AI Act', team: 'Abhängigkeit von einer Person', mkt: 'Website, Kunden & Marketing' },
+    tiers: [['Startrampe', 'Viele Risiken und Handarbeit. Die gute Nachricht: Schnelle Verbesserungen bringen spürbaren Effekt.'], ['Auf dem Weg in den Orbit', 'Die Basis steht, aber einige Lücken kosten Geld oder bergen Risiken.'], ['Stabiler Orbit', 'Ein gutes Niveau. Es bleiben einzelne Schwachstellen.'], ['Im offenen Weltraum', 'Sie sind den meisten Unternehmen voraus. Zeit für Skalierung und KI.']],
+    qs: ['Leben Kunden, Aufträge und Finanzen in einem verbundenen System (CRM) mit vollständiger Kundenhistorie?', 'Wissen Sie, was Sie für alle IT-Dienste zahlen, und haben Sie im letzten Jahr unnötige gekündigt?', 'Falls Sie KI nutzen: Wissen Sie, was sie kostet und was sie einspart?', 'Gibt es eine verantwortliche Person für Informationssicherheit?', 'Gibt es Backups, und haben Sie die Wiederherstellung getestet?', 'Nutzen Ihre Mitarbeitenden Zwei-Faktor-Authentifizierung und erkennen sie Phishing?', 'Erfüllen Sie die DSGVO: Verarbeitungsverzeichnis, AV-Verträge, korrekte Cookie-Einwilligung?', 'Wissen Sie, ob Ihre KI-Tools unter den EU AI Act fallen, und gibt es Regeln für ihre Nutzung?', 'Wenn Ihr IT-Verantwortlicher morgen geht: Kennt jemand anderes Zugänge und Systeme?', 'Ist Ihre Website mobil gut nutzbar, und können Kunden online buchen, bestellen oder bezahlen?', 'Wissen Sie, was ein Kunde pro Werbekanal kostet und an welcher Stelle Besucher Ihre Website verlassen?']
+  }
+};
+var QCAT = ['data', 'cost', 'cost', 'sec', 'sec', 'sec', 'law', 'law', 'team', 'mkt', 'mkt'];
+function quizResult(ans) {
+  var s = 0, per = {}, max = {};
+  QCAT.forEach(function (c, i) { var v = ans[i] == null ? 0 : ans[i]; s += v; per[c] = (per[c] || 0) + v; max[c] = (max[c] || 0) + 2; });
+  var tier = s <= 7 ? 0 : s <= 14 ? 1 : s <= 19 ? 2 : 3;
+  var weak = Object.keys(per).filter(function (c) { return per[c] < max[c]; }).sort(function (a, b) { return per[a] / max[a] - per[b] / max[b]; }).slice(0, 3);
+  return { score: s, tier: tier, weak: weak };
+}
+
+var qAns = {}, qShown = false, qLang = 'ru';
+function renderQuiz(lang) {
+  qLang = lang; var q = Q[lang];
+  document.getElementById('qz-eyebrow').textContent = q.eyebrow;
+  document.getElementById('qz-title').textContent = q.title;
+  document.getElementById('qz-sub').textContent = q.sub;
+  var list = document.getElementById('qz-list'); list.innerHTML = '';
+  q.qs.forEach(function (text, i) {
+    var row = el('div', 'q'); var p = el('p'); p.appendChild(el('span', 'n', (i < 9 ? '0' : '') + (i + 1))); p.appendChild(document.createTextNode(text)); row.appendChild(p);
+    var o = el('div', 'opts'); o.setAttribute('role', 'group'); o.setAttribute('aria-label', text);
+    q.opts.forEach(function (lab, k) { var b = el('button', null, lab); b.type = 'button'; b.setAttribute('aria-pressed', qAns[i] === 2 - k); b.addEventListener('click', function () { qAns[i] = 2 - k; renderQuiz(qLang); }); o.appendChild(b); });
+    row.appendChild(o); list.appendChild(row);
+  });
+  var n = Object.keys(qAns).length, ready = n === q.qs.length;
+  document.getElementById('qz-progress').textContent = ready || !qShown ? q.progress + ' ' + n + ' ' + q.of + ' ' + q.qs.length : q.hint;
+  var sb = document.getElementById('qz-show'); sb.textContent = q.show; sb.disabled = !ready; sb.onclick = function () { qShown = true; renderQuiz(qLang); document.getElementById('qz-res').scrollIntoView({ behavior: 'smooth', block: 'center' }); };
+  var res = document.getElementById('qz-res'); res.innerHTML = '';
+  if (!(qShown && ready)) { res.hidden = true; return; }
+  var r = quizResult(qAns), tr = q.tiers[r.tier]; res.hidden = false;
+  var top = el('div'); top.style.cssText = 'display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline';
+  var sc = el('span', 'disp', String(r.score)); sc.style.cssText = 'font-weight:700;font-size:56px;line-height:60px;color:var(--text)'; top.appendChild(sc);
+  top.appendChild(el('span', 'muted', q.points)); res.appendChild(top);
+  var h = el('h3', null, tr[0]); h.style.cssText = 'margin:0;font-size:28px;line-height:34px;color:#C9BEFF'; res.appendChild(h);
+  var d = el('p', null, tr[1]); d.style.cssText = 'margin:0;max-width:640px;color:#D5CEF7'; res.appendChild(d);
+  if (r.weak.length) {
+    res.appendChild(el('span', 'eyebrow c', q.weak));
+    r.weak.forEach(function (c) { var li = el('div', 'li'); var s = el('span'); s.style.cssText = 'width:8px;height:8px;border-radius:999px;background:#FFB547;flex-shrink:0;margin-top:8px'; li.appendChild(s); li.appendChild(el('span', null, q.cats[c])); res.appendChild(li); });
+  }
+  var row2 = el('div'); row2.style.cssText = 'display:flex;flex-wrap:wrap;gap:12px;padding-top:8px';
+  var a = el('a', 'btn', L[lang].heroCta1); a.href = '#check'; row2.appendChild(a);
+  var rb = el('button', 'btn ghost', q.restart); rb.type = 'button'; rb.addEventListener('click', function () { qAns = {}; qShown = false; renderQuiz(qLang); document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' }); }); row2.appendChild(rb);
+  res.appendChild(row2);
+}
 function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
 var CHECK = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B70FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;margin-top:3px"><path d="M20 6L9 17l-5-5"/></svg>';
 function render(lang) {
@@ -249,6 +340,7 @@ function render(lang) {
   t.svcs.forEach(function (x, n) { var c = el('div', 'card'); c.style.background = 'var(--panel)'; c.style.padding = '32px'; c.appendChild(el('span', 'num', '0' + (n + 1))); var h = el('h3', null, x[0]); h.style.fontSize = '22px'; c.appendChild(h); c.appendChild(el('p', null, x[1])); s.appendChild(c); });
   var tm = document.getElementById('team-list'); tm.innerHTML = '';
   t.team.forEach(function (x) { var c = el('div', 'card'); c.appendChild(el('div', 'ava')); var e = el('span', 'eyebrow c', x[0]); c.appendChild(e); var h = el('h3', null, '[NAME]'); h.style.fontSize = '20px'; c.appendChild(h); c.appendChild(el('p', null, x[1])); tm.appendChild(c); });
+  renderQuiz(lang);
   try { localStorage.setItem('lang', lang); } catch (e) {}
 }
 document.querySelectorAll('[data-lang]').forEach(function (b) { b.addEventListener('click', function () { render(b.getAttribute('data-lang')); }); });
