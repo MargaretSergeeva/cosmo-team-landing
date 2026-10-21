@@ -240,7 +240,7 @@ function render(lang) {
   var f = document.getElementById('facts'); f.innerHTML = '';
   t.facts.forEach(function (x) { var d = el('div'); d.appendChild(el('b', null, x[0])); d.appendChild(el('span', null, x[1])); f.appendChild(d); });
   var p = document.getElementById('pains'); p.innerHTML = '';
-  t.pains.forEach(function (x) { var c = el('div', 'card'); c.appendChild(el('span', 'dot')); c.appendChild(el('h3', null, x[0])); c.appendChild(el('p', null, x[1])); p.appendChild(c); });
+  t.pains.forEach(function (x) { var c = el('div', 'card'); c.appendChild(el('h3', null, x[0])); c.appendChild(el('p', null, x[1])); p.appendChild(c); });
   var i = document.getElementById('incl'); i.innerHTML = '';
   t.incl.forEach(function (x) { var d = el('div', 'li'); d.innerHTML = CHECK; d.appendChild(el('span', null, x)); i.appendChild(d); });
   var r = document.getElementById('res'); r.innerHTML = '';
