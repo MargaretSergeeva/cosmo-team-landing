@@ -10,7 +10,7 @@
 <style>
 :root{--bg:#0B0E1A;--panel:#141A2E;--line:#232A45;--text:#EDEFF7;--muted:#9AA3C0;--nebula:#8B70FF;--nebula-soft:#2A2259;--glow:#4FD1E8;--nova:#FFB547}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font:16px/24px Inter,system-ui,sans-serif}
+body{margin:0;background-color:var(--bg);background-image:radial-gradient(1px 1px at 20px 30px, rgba(237,239,247,0.6), transparent), radial-gradient(1px 1px at 120px 80px, rgba(237,239,247,0.4), transparent), radial-gradient(1.5px 1.5px at 260px 160px, rgba(237,239,247,0.5), transparent), radial-gradient(1px 1px at 340px 40px, rgba(237,239,247,0.35), transparent), radial-gradient(1px 1px at 80px 220px, rgba(237,239,247,0.45), transparent), radial-gradient(1.5px 1.5px at 190px 300px, rgba(237,239,247,0.4), transparent), radial-gradient(1px 1px at 310px 260px, rgba(237,239,247,0.5), transparent), radial-gradient(1px 1px at 380px 350px, rgba(237,239,247,0.3), transparent), radial-gradient(1px 1px at 150px 370px, rgba(237,239,247,0.4), transparent), radial-gradient(1px 1px at 40px 330px, rgba(237,239,247,0.3), transparent);background-size:400px 400px;color:var(--text);font:16px/24px Inter,system-ui,sans-serif}
 a{color:var(--nebula)}a:hover{color:#B3A3FF}
 h1,h2,h3,.disp{font-family:"Space Grotesk",sans-serif}
 .wrap{max-width:1200px;margin:0 auto;padding:96px 24px}
@@ -22,7 +22,7 @@ h2{margin:0;font-weight:600;font-size:36px;line-height:42px}
 .card{border:1px solid var(--line);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:12px}
 .card h3{margin:0;font-weight:600;font-size:19px;line-height:26px}
 .card p{margin:0;font-size:15px;line-height:22px;color:var(--muted)}
-.band{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.band{background:rgba(20,26,46,.85);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .band .card{background:var(--bg)}
 .btn{background:var(--nebula);color:var(--bg);text-decoration:none;font-weight:600;padding:14px 24px;border-radius:12px;min-height:48px;display:inline-flex;align-items:center;justify-content:center;border:0;font-size:16px;cursor:pointer;font-family:inherit}
 .btn:hover{color:var(--bg);background:#9C86FF}
@@ -30,7 +30,7 @@ h2{margin:0;font-weight:600;font-size:36px;line-height:42px}
 .head{border-bottom:1px solid var(--line)}
 .head .in{max-width:1200px;margin:0 auto;padding:16px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}
 .logo{text-decoration:none;display:flex;flex-direction:column;gap:2px}
-.logo b{font-family:"Space Grotesk",sans-serif;font-size:20px;line-height:24px;color:var(--text)}
+.logo b{font-family:"Space Grotesk",sans-serif;font-size:28px;line-height:32px;color:var(--text)}
 nav{display:flex;flex-wrap:wrap;gap:24px;font-size:15px}
 nav a{color:var(--muted);text-decoration:none}nav a:hover{color:var(--text)}
 .flags{display:flex;gap:6px}
