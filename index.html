@@ -110,7 +110,7 @@ footer a{color:var(--muted)}
     <h1><span style="color:inherit" data-k="heroA"></span> <span data-k="heroB"></span></h1>
     <p class="sub" data-k="heroSub"></p>
     <div style="display:flex;flex-wrap:wrap;gap:12px;padding-top:8px">
-      <a class="btn" href="#check" data-k="heroCta1"></a><a class="btn ghost" href="#services" data-k="heroCta2"></a>
+      <a class="btn" href="#check" data-k="heroCta1"></a><a class="btn ghost" href="#quiz" id="hero-quiz" data-k="heroCta2"></a>
     </div>
     <div class="facts" id="facts"></div>
   </div>
@@ -123,12 +123,15 @@ footer a{color:var(--muted)}
 
 <section id="quiz"><div class="wrap" style="display:flex;flex-direction:column;gap:32px">
   <div style="display:flex;flex-direction:column;gap:8px"><span class="eyebrow c" id="qz-eyebrow"></span><h2 id="qz-title"></h2><p class="muted" style="margin:0;max-width:640px" id="qz-sub"></p></div>
+  <div><button class="btn" type="button" id="qz-start"></button></div>
+  <div id="qz-body" style="display:none;flex-direction:column;gap:32px">
   <div class="qlist" id="qz-list"></div>
   <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between">
     <span class="muted" id="qz-progress" aria-live="polite"></span>
     <button class="btn" type="button" id="qz-show"></button>
   </div>
   <div class="qres" id="qz-res" hidden aria-live="polite"></div>
+  </div>
 </div></section>
 
 <section id="check"><div class="wrap check">
@@ -189,7 +192,7 @@ var L = {
     eyebrow: 'IT- и Digital-консалтинг для предпринимателей в DACH',
     heroA: 'Разберёмся в вашем IT', heroB: 'и сократим лишние расходы.',
     heroSub: 'Проверяем ваш стек, находим, где вы переплачиваете и рискуете штрафами, и внедряем решения под ваш бизнес, включая ИИ. На русском, английском и немецком.',
-    heroCta1: 'Заказать IT-Check', heroCta2: 'Как мы работаем',
+    heroCta1: 'Заказать IT-Check', heroCta2: 'Проверить бизнес прямо сейчас',
     facts: [['1 звонок', 'знакомство и разбор целей'], ['2 недели', 'на аудит и отчёт'], ['3 языка', 'русский, английский, немецкий'], ['4 эксперта', 'бизнес, разработка, безопасность, UX']],
     painsEyebrow: 'Знакомо?', painsTitle: 'Что мешает вашему бизнесу расти',
     pains: [['Данные разбросаны по разным системам', 'CRM, таблицы и мессенджеры не связаны между собой, поэтому полной картины нет и данные приходится переносить вручную.'], ['Сервисы, которые не приносят пользы', 'Часть подписок давно не используется, а без части можно обойтись вовсе.'], ['Нет стратегии информационной безопасности', 'Риски утечек и атак не оценены, а за нарушения DSGVO и NIS2 грозят штрафы.'], ['IT держится на одном специалисте', 'Нагрузка неравномерная: то аврал, то простой. А если человек уходит в отпуск или увольняется, вместе с ним уходят и знания о системах.']],
@@ -211,7 +214,7 @@ var L = {
     eyebrow: 'IT & digital consulting for business owners in DACH',
     heroA: 'We sort out your IT', heroB: 'and cut what you don’t need.',
     heroSub: 'We review your stack, find where you overpay or risk fines, and build solutions that fit your business, including AI. In English, German and Russian.',
-    heroCta1: 'Order an IT-Check', heroCta2: 'How we work',
+    heroCta1: 'Order an IT-Check', heroCta2: 'Check your business now',
     facts: [['1 call', 'to get to know your business and goals'], ['2 weeks', 'for audit and report'], ['3 languages', 'English, German, Russian'], ['4 experts', 'business, development, security, UX']],
     painsEyebrow: 'Sound familiar?', painsTitle: 'What holds your business back',
     pains: [['Data scattered across systems', 'CRM, spreadsheets and messengers don’t talk to each other, so there’s no full picture and data is moved by hand.'], ['Tools that bring no value', 'Some subscriptions haven’t been used in ages, and others you can do without entirely.'], ['No information security strategy', 'Breach and attack risks are unassessed, and GDPR or NIS2 violations can mean fines.'], ['IT rests on one specialist', 'Uneven workload: crunch one week, idle the next. And when they go on holiday or leave, their knowledge of your systems goes too.']],
@@ -233,7 +236,7 @@ var L = {
     eyebrow: 'IT- und Digitalberatung für Unternehmer in DACH',
     heroA: 'Wir bringen Ordnung in Ihre IT', heroB: 'und senken unnötige Kosten.',
     heroSub: 'Wir prüfen Ihren Stack, finden, wo Sie zu viel zahlen oder Bußgelder riskieren, und setzen passende Lösungen um, auch mit KI. Auf Deutsch, Englisch und Russisch.',
-    heroCta1: 'IT-Check anfragen', heroCta2: 'So arbeiten wir',
+    heroCta1: 'IT-Check anfragen', heroCta2: 'Jetzt Unternehmen prüfen',
     facts: [['1 Gespräch', 'zum Kennenlernen und Klären der Ziele'], ['2 Wochen', 'für Audit und Bericht'], ['3 Sprachen', 'Deutsch, Englisch, Russisch'], ['4 Experten', 'Business, Entwicklung, Sicherheit, UX']],
     painsEyebrow: 'Kommt Ihnen das bekannt vor?', painsTitle: 'Was Ihr Wachstum bremst',
     pains: [['Daten verteilt auf viele Systeme', 'CRM, Tabellen und Messenger sind nicht verbunden: Es fehlt der Gesamtüberblick, Daten werden von Hand übertragen.'], ['Tools ohne echten Nutzen', 'Manche Abos werden längst nicht mehr genutzt, auf andere können Sie ganz verzichten.'], ['Keine Strategie für Informationssicherheit', 'Risiken durch Datenlecks und Angriffe sind nicht bewertet, bei Verstößen gegen DSGVO und NIS2 drohen Bußgelder.'], ['Die IT hängt an einer Fachkraft', 'Ungleichmäßige Auslastung: mal Hochbetrieb, mal Leerlauf. Und bei Urlaub oder Kündigung geht das Wissen über Ihre Systeme mit.']],
@@ -288,12 +291,17 @@ function quizResult(ans) {
   return { score: s, tier: tier, weak: weak };
 }
 
-var qAns = {}, qShown = false, qLang = 'ru';
+var QSTART = { ru: 'Пройти проверку', en: 'Start the check', de: 'Check starten' };
+var qAns = {}, qShown = false, qLang = 'ru', qOpen = false;
+function openQuiz() { qOpen = true; renderQuiz(qLang); }
 function renderQuiz(lang) {
   qLang = lang; var q = Q[lang];
   document.getElementById('qz-eyebrow').textContent = q.eyebrow;
   document.getElementById('qz-title').textContent = q.title;
   document.getElementById('qz-sub').textContent = q.sub;
+  var st = document.getElementById('qz-start'); st.textContent = QSTART[lang]; st.onclick = openQuiz; st.parentNode.style.display = qOpen ? 'none' : 'block';
+  document.getElementById('qz-body').style.display = qOpen ? 'flex' : 'none';
+  document.getElementById('hero-quiz').onclick = openQuiz;
   var list = document.getElementById('qz-list'); list.innerHTML = '';
   q.qs.forEach(function (text, i) {
     var row = el('div', 'q'); var p = el('p'); p.appendChild(el('span', 'n', (i < 9 ? '0' : '') + (i + 1))); p.appendChild(document.createTextNode(text)); row.appendChild(p);
