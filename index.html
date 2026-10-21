@@ -116,6 +116,17 @@ footer a{color:var(--muted)}
   </div>
 </section>
 
+<section aria-labelledby="fund-title"><div class="wrap" style="padding:0 24px 72px">
+  <div style="border:1px solid #FFB547;background:rgba(255,181,71,.08);border-radius:12px;padding:32px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between">
+    <div style="flex:999 1 480px;min-width:0;display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap"><span style="background:#FFB547;color:#0B0E1A;font-weight:700;font-size:12px;letter-spacing:.08em;padding:4px 10px;border-radius:999px">KfW</span><span class="eyebrow" style="color:#FFB547" data-k="fundEyebrow"></span></div>
+      <h2 id="fund-title" style="font-weight:700;font-size:clamp(26px,3.5vw,36px);line-height:1.15" data-k="fundTitle"></h2>
+      <p style="margin:0;max-width:680px;font-size:17px;line-height:26px;color:#D9DDEA" data-k="fundText"></p>
+    </div>
+    <a class="btn" href="#contact" style="flex:1 0 auto;background:#FFB547;color:#0B0E1A" data-k="fundCta"></a>
+  </div>
+</div></section>
+
 <section class="band"><div class="wrap" style="display:flex;flex-direction:column;gap:40px;padding:80px 24px">
   <div style="display:flex;flex-direction:column;gap:8px"><span class="eyebrow" data-k="painsEyebrow"></span><h2 data-k="painsTitle"></h2></div>
   <div class="grid" id="pains"></div>
@@ -193,6 +204,7 @@ var L = {
     heroA: 'Разберёмся в вашем IT', heroB: 'и сократим лишние расходы.',
     heroSub: 'Проверяем ваш стек, находим, где вы переплачиваете и рискуете штрафами, и внедряем решения под ваш бизнес, включая ИИ. На русском, английском и немецком.',
     heroCta1: 'Заказать IT-Check', heroCta2: 'Бесплатный тест за 3 минуты',
+    fundEyebrow: 'Господдержка', fundTitle: 'Цифровизация с господдержкой', fundText: 'Планируем и внедряем проект так, чтобы его можно было профинансировать льготным кредитом KfW, а для проектов по IT-безопасности и ИИ — с грантом.', fundCta: 'Обсудить проект',
     facts: [['1 звонок', 'знакомство и разбор целей'], ['2 недели', 'на аудит и отчёт'], ['3 языка', 'русский, английский, немецкий'], ['4 эксперта', 'бизнес, разработка, безопасность, UX']],
     painsEyebrow: 'Знакомо?', painsTitle: 'Что мешает вашему бизнесу расти',
     pains: [['Данные разбросаны по разным системам', 'CRM, таблицы и мессенджеры не связаны между собой, поэтому полной картины нет и данные приходится переносить вручную.'], ['Сервисы, которые не приносят пользы', 'Часть подписок давно не используется, а без части можно обойтись вовсе.'], ['Нет стратегии информационной безопасности', 'Риски утечек и атак не оценены, а за нарушения DSGVO и NIS2 грозят штрафы.'], ['IT держится на одном специалисте', 'Нагрузка неравномерная: то аврал, то простой. А если человек уходит в отпуск или увольняется, вместе с ним уходят и знания о системах.']],
@@ -215,6 +227,7 @@ var L = {
     heroA: 'We sort out your IT', heroB: 'and cut what you don’t need.',
     heroSub: 'We review your stack, find where you overpay or risk fines, and build solutions that fit your business, including AI. In English, German and Russian.',
     heroCta1: 'Order an IT-Check', heroCta2: 'Free 3-min test',
+    fundEyebrow: 'Public funding', fundTitle: 'Funded digitalisation project', fundText: 'We plan and deliver your project so it can be financed with the KfW digitalisation loan, with a grant for IT security and AI projects.', fundCta: 'Discuss your project',
     facts: [['1 call', 'to get to know your business and goals'], ['2 weeks', 'for audit and report'], ['3 languages', 'English, German, Russian'], ['4 experts', 'business, development, security, UX']],
     painsEyebrow: 'Sound familiar?', painsTitle: 'What holds your business back',
     pains: [['Data scattered across systems', 'CRM, spreadsheets and messengers don’t talk to each other, so there’s no full picture and data is moved by hand.'], ['Tools that bring no value', 'Some subscriptions haven’t been used in ages, and others you can do without entirely.'], ['No information security strategy', 'Breach and attack risks are unassessed, and GDPR or NIS2 violations can mean fines.'], ['IT rests on one specialist', 'Uneven workload: crunch one week, idle the next. And when they go on holiday or leave, their knowledge of your systems goes too.']],
@@ -237,6 +250,7 @@ var L = {
     heroA: 'Wir bringen Ordnung in Ihre IT', heroB: 'und senken unnötige Kosten.',
     heroSub: 'Wir prüfen Ihren Stack, finden, wo Sie zu viel zahlen oder Bußgelder riskieren, und setzen passende Lösungen um, auch mit KI. Auf Deutsch, Englisch und Russisch.',
     heroCta1: 'IT-Check anfragen', heroCta2: 'Kostenloser 3-Minuten-Test',
+    fundEyebrow: 'Förderung', fundTitle: 'Gefördertes Digitalisierungsprojekt', fundText: 'Wir planen und setzen Ihr Projekt so um, dass es über den KfW-Förderkredit Digitalisierung finanziert werden kann, bei IT-Sicherheits- und KI-Projekten mit Zuschuss.', fundCta: 'Projekt besprechen',
     facts: [['1 Gespräch', 'zum Kennenlernen und Klären der Ziele'], ['2 Wochen', 'für Audit und Bericht'], ['3 Sprachen', 'Deutsch, Englisch, Russisch'], ['4 Experten', 'Business, Entwicklung, Sicherheit, UX']],
     painsEyebrow: 'Kommt Ihnen das bekannt vor?', painsTitle: 'Was Ihr Wachstum bremst',
     pains: [['Daten verteilt auf viele Systeme', 'CRM, Tabellen und Messenger sind nicht verbunden: Es fehlt der Gesamtüberblick, Daten werden von Hand übertragen.'], ['Tools ohne echten Nutzen', 'Manche Abos werden längst nicht mehr genutzt, auf andere können Sie ganz verzichten.'], ['Keine Strategie für Informationssicherheit', 'Risiken durch Datenlecks und Angriffe sind nicht bewertet, bei Verstößen gegen DSGVO und NIS2 drohen Bußgelder.'], ['Die IT hängt an einer Fachkraft', 'Ungleichmäßige Auslastung: mal Hochbetrieb, mal Leerlauf. Und bei Urlaub oder Kündigung geht das Wissen über Ihre Systeme mit.']],
