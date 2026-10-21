@@ -109,8 +109,8 @@ footer a{color:var(--muted)}
     <span class="eyebrow c" data-k="eyebrow"></span>
     <h1><span style="color:inherit" data-k="heroA"></span> <span data-k="heroB"></span></h1>
     <p class="sub" data-k="heroSub"></p>
-    <div style="display:flex;flex-wrap:wrap;gap:12px;padding-top:8px">
-      <a class="btn" href="#check" data-k="heroCta1"></a><a class="btn ghost" href="#quiz" id="hero-quiz" data-k="heroCta2"></a>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding-top:8px;max-width:560px">
+      <a class="btn" href="#check" data-k="heroCta1" style="text-align:center;padding:14px 12px"></a><a class="btn ghost" href="#quiz" id="hero-quiz" data-k="heroCta2" style="text-align:center;padding:14px 12px"></a>
     </div>
     <div class="facts" id="facts"></div>
   </div>
@@ -192,7 +192,7 @@ var L = {
     eyebrow: 'IT- и Digital-консалтинг для предпринимателей в DACH',
     heroA: 'Разберёмся в вашем IT', heroB: 'и сократим лишние расходы.',
     heroSub: 'Проверяем ваш стек, находим, где вы переплачиваете и рискуете штрафами, и внедряем решения под ваш бизнес, включая ИИ. На русском, английском и немецком.',
-    heroCta1: 'Заказать IT-Check', heroCta2: 'Проверить бизнес прямо сейчас',
+    heroCta1: 'Заказать IT-Check', heroCta2: 'Бесплатный тест за 3 минуты',
     facts: [['1 звонок', 'знакомство и разбор целей'], ['2 недели', 'на аудит и отчёт'], ['3 языка', 'русский, английский, немецкий'], ['4 эксперта', 'бизнес, разработка, безопасность, UX']],
     painsEyebrow: 'Знакомо?', painsTitle: 'Что мешает вашему бизнесу расти',
     pains: [['Данные разбросаны по разным системам', 'CRM, таблицы и мессенджеры не связаны между собой, поэтому полной картины нет и данные приходится переносить вручную.'], ['Сервисы, которые не приносят пользы', 'Часть подписок давно не используется, а без части можно обойтись вовсе.'], ['Нет стратегии информационной безопасности', 'Риски утечек и атак не оценены, а за нарушения DSGVO и NIS2 грозят штрафы.'], ['IT держится на одном специалисте', 'Нагрузка неравномерная: то аврал, то простой. А если человек уходит в отпуск или увольняется, вместе с ним уходят и знания о системах.']],
@@ -214,7 +214,7 @@ var L = {
     eyebrow: 'IT & digital consulting for business owners in DACH',
     heroA: 'We sort out your IT', heroB: 'and cut what you don’t need.',
     heroSub: 'We review your stack, find where you overpay or risk fines, and build solutions that fit your business, including AI. In English, German and Russian.',
-    heroCta1: 'Order an IT-Check', heroCta2: 'Check your business now',
+    heroCta1: 'Order an IT-Check', heroCta2: 'Free 3-min test',
     facts: [['1 call', 'to get to know your business and goals'], ['2 weeks', 'for audit and report'], ['3 languages', 'English, German, Russian'], ['4 experts', 'business, development, security, UX']],
     painsEyebrow: 'Sound familiar?', painsTitle: 'What holds your business back',
     pains: [['Data scattered across systems', 'CRM, spreadsheets and messengers don’t talk to each other, so there’s no full picture and data is moved by hand.'], ['Tools that bring no value', 'Some subscriptions haven’t been used in ages, and others you can do without entirely.'], ['No information security strategy', 'Breach and attack risks are unassessed, and GDPR or NIS2 violations can mean fines.'], ['IT rests on one specialist', 'Uneven workload: crunch one week, idle the next. And when they go on holiday or leave, their knowledge of your systems goes too.']],
@@ -236,7 +236,7 @@ var L = {
     eyebrow: 'IT- und Digitalberatung für Unternehmer in DACH',
     heroA: 'Wir bringen Ordnung in Ihre IT', heroB: 'und senken unnötige Kosten.',
     heroSub: 'Wir prüfen Ihren Stack, finden, wo Sie zu viel zahlen oder Bußgelder riskieren, und setzen passende Lösungen um, auch mit KI. Auf Deutsch, Englisch und Russisch.',
-    heroCta1: 'IT-Check anfragen', heroCta2: 'Jetzt Unternehmen prüfen',
+    heroCta1: 'IT-Check anfragen', heroCta2: 'Kostenloser 3-Minuten-Test',
     facts: [['1 Gespräch', 'zum Kennenlernen und Klären der Ziele'], ['2 Wochen', 'für Audit und Bericht'], ['3 Sprachen', 'Deutsch, Englisch, Russisch'], ['4 Experten', 'Business, Entwicklung, Sicherheit, UX']],
     painsEyebrow: 'Kommt Ihnen das bekannt vor?', painsTitle: 'Was Ihr Wachstum bremst',
     pains: [['Daten verteilt auf viele Systeme', 'CRM, Tabellen und Messenger sind nicht verbunden: Es fehlt der Gesamtüberblick, Daten werden von Hand übertragen.'], ['Tools ohne echten Nutzen', 'Manche Abos werden längst nicht mehr genutzt, auf andere können Sie ganz verzichten.'], ['Keine Strategie für Informationssicherheit', 'Risiken durch Datenlecks und Angriffe sind nicht bewertet, bei Verstößen gegen DSGVO und NIS2 drohen Bußgelder.'], ['Die IT hängt an einer Fachkraft', 'Ungleichmäßige Auslastung: mal Hochbetrieb, mal Leerlauf. Und bei Urlaub oder Kündigung geht das Wissen über Ihre Systeme mit.']],
@@ -255,7 +255,7 @@ var L = {
 };
 var Q = {
   ru: {
-    eyebrow: 'Экспресс-проверка', title: 'Проверьте свой бизнес за 2 минуты',
+    eyebrow: 'Экспресс-проверка', title: 'Проверьте свой бизнес за 3 минуты',
     sub: '11 вопросов. Ответы никуда не отправляются, результат считается прямо в браузере.',
     opts: ['Да', 'Частично', 'Нет'], progress: 'Отвечено', of: 'из', show: 'Показать результат', hint: 'Ответьте на все вопросы, чтобы увидеть результат.',
     points: 'баллов из 22', weak: 'Где стоит начать', restart: 'Пройти заново',
@@ -264,7 +264,7 @@ var Q = {
     qs: ['Клиенты, заказы и финансы живут в одной связанной системе (CRM) с полной историей работы с клиентом?', 'Знаете, сколько платите за все IT-сервисы, и убирали ли ненужные за последний год?', 'Если используете ИИ, знаете, сколько он стоит и какую экономию даёт?', 'Есть ли у вас человек, который отвечает за информационную безопасность?', 'Есть ли резервные копии, и проверяли ли вы восстановление из них?', 'Сотрудники используют двухфакторную авторизацию и умеют распознавать фишинг?', 'Знаете, где хранятся ваши данные (в ЕС или нет), и выполняете ли требования DSGVO: реестр обработки, договоры AVV, корректные cookie?', 'Знаете, подпадают ли ваши ИИ-инструменты под EU AI Act, и есть ли правила их использования?', 'Если IT-специалист уйдёт завтра, кто-то знает доступы и устройство систем?', 'Сайт удобен с телефона, и клиент может записаться, заказать или оплатить онлайн?', 'Знаете, сколько стоит клиент из каждого рекламного канала и на каком шаге посетители уходят с сайта?']
   },
   en: {
-    eyebrow: 'Quick check', title: 'Check your business in 2 minutes',
+    eyebrow: 'Quick check', title: 'Check your business in 3 minutes',
     sub: '11 questions. Your answers aren’t sent anywhere; the result is calculated in your browser.',
     opts: ['Yes', 'Partly', 'No'], progress: 'Answered', of: 'of', show: 'Show result', hint: 'Answer all questions to see your result.',
     points: 'of 22 points', weak: 'Where to start', restart: 'Start over',
@@ -273,7 +273,7 @@ var Q = {
     qs: ['Do customers, orders and finances live in one connected system (CRM) with the full customer history?', 'Do you know what you pay for all IT services, and have you cut unnecessary ones in the past year?', 'If you use AI, do you know what it costs and what it saves you?', 'Is someone in charge of information security?', 'Do you have backups, and have you tested restoring from them?', 'Do employees use two-factor authentication and recognise phishing?', 'Do you know where your data is stored (in the EU or not), and do you meet GDPR requirements: processing records, data processing agreements, proper cookie consent?', 'Do you know whether your AI tools fall under the EU AI Act, and are there rules for using them?', 'If your IT person left tomorrow, would anyone else know the access details and how systems work?', 'Is your website easy to use on a phone, and can customers book, order or pay online?', 'Do you know the cost per customer for each ad channel and at which step visitors leave your site?']
   },
   de: {
-    eyebrow: 'Schnellcheck', title: 'Prüfen Sie Ihr Unternehmen in 2 Minuten',
+    eyebrow: 'Schnellcheck', title: 'Prüfen Sie Ihr Unternehmen in 3 Minuten',
     sub: '11 Fragen. Ihre Antworten werden nicht übertragen, das Ergebnis entsteht direkt im Browser.',
     opts: ['Ja', 'Teilweise', 'Nein'], progress: 'Beantwortet', of: 'von', show: 'Ergebnis anzeigen', hint: 'Beantworten Sie alle Fragen, um Ihr Ergebnis zu sehen.',
     points: 'von 22 Punkten', weak: 'Wo Sie ansetzen sollten', restart: 'Neu starten',
