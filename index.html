@@ -313,14 +313,16 @@ function quizResult(ans) {
 }
 
 var QSTART = { ru: 'Пройти проверку', en: 'Start the check', de: 'Check starten' };
+var QCLOSE = { ru: 'Свернуть тест', en: 'Close the test', de: 'Test schließen' };
 var qAns = {}, qShown = false, qLang = 'ru', qOpen = false;
 function openQuiz() { qOpen = true; renderQuiz(qLang); }
+function toggleQuiz() { qOpen = !qOpen; renderQuiz(qLang); }
 function renderQuiz(lang) {
   qLang = lang; var q = Q[lang];
   document.getElementById('qz-eyebrow').textContent = q.eyebrow;
   document.getElementById('qz-title').textContent = q.title;
   document.getElementById('qz-sub').textContent = q.sub;
-  var st = document.getElementById('qz-start'); st.textContent = QSTART[lang]; st.onclick = openQuiz; st.parentNode.style.display = qOpen ? 'none' : 'block';
+  var st = document.getElementById('qz-start'); st.textContent = qOpen ? QCLOSE[lang] : QSTART[lang]; st.onclick = toggleQuiz; st.className = qOpen ? 'btn ghost' : 'btn'; st.setAttribute('aria-expanded', qOpen); st.setAttribute('aria-controls', 'qz-body');
   document.getElementById('qz-body').style.display = qOpen ? 'flex' : 'none';
   document.getElementById('hero-quiz').onclick = openQuiz;
   var list = document.getElementById('qz-list'); list.innerHTML = '';
