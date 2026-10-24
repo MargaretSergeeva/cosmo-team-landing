@@ -1,0 +1,285 @@
+<title>Spreewald Audit Report</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Layout: consulting report, one narrow column of "pages", AI Observatory Daylight theme for print, Deep Space for dark */
+:root{
+  --bg:#F7F8FC; --surface:#FFFFFF; --line:#E3E6F0; --fg:#0F1324; --muted:#525B78;
+  --accent:#5B3FE0; --accent-soft:#ECE8FF; --data:#0B7A90; --alert:#FFC229; --alert-soft:#FFF4CC; --alert-ink:#0F1324;
+  --display:"Space Grotesk",system-ui,sans-serif; --body:"Inter",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0B1430; --surface:#132048; --line:#24335F; --fg:#EDEFF7; --muted:#A3AED0;
+  --accent:#8B70FF; --accent-soft:#2A2259; --data:#4FD1E8; --alert:#FFD400; --alert-soft:#3A3315; --alert-ink:#FFD400; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0B1430; --surface:#132048; --line:#24335F; --fg:#EDEFF7; --muted:#A3AED0;
+  --accent:#8B70FF; --accent-soft:#2A2259; --data:#4FD1E8; --alert:#FFD400; --alert-soft:#3A3315; --alert-ink:#FFD400; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.page{max-width:880px;margin:0 auto;padding-block:48px;display:flex;flex-direction:column;gap:56px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.15}
+h2{font-size:28px}
+h3{font-size:18px}
+p{margin:0}
+.eyebrow{font-family:var(--display);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.sec{display:flex;flex-direction:column;gap:20px}
+.sec>header{display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--line);padding-top:24px}
+.lead{color:var(--muted);max-width:65ch}
+.num{font-variant-numeric:tabular-nums}
+/* cover */
+.cover{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:end;padding-block:24px}
+.cover h1{font-size:clamp(34px,6vw,52px)}
+.cover .meta{color:var(--muted);margin-top:12px}
+.mock{display:inline-block;background:var(--alert-soft);color:var(--alert-ink);font-size:13px;font-weight:600;padding:4px 10px;border-radius:999px}
+.score-ring{width:180px;height:180px;position:relative}
+.score-ring svg{width:100%;height:100%}
+.score-ring .v{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.score-ring b{font-family:var(--display);font-size:56px;line-height:1;color:var(--alert-ink)}
+.score-ring span{font-size:13px;color:var(--muted)}
+/* summary tiles */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:6px}
+.tile b{font-family:var(--display);font-size:30px}
+.tile span{font-size:14px;color:var(--muted)}
+/* bars */
+.bars{display:flex;flex-direction:column;gap:12px}
+.bar{display:grid;grid-template-columns:180px 1fr 56px;gap:16px;align-items:center}
+.track{height:12px;background:var(--line);border-radius:999px;overflow:hidden}
+.fill{height:100%;border-radius:999px}
+.f-alert{background:var(--alert)} .f-accent{background:var(--accent)} .f-data{background:var(--data)}
+.bar .label{font-size:15px} .bar .val{text-align:right;font-weight:600}
+.risk .f-alert{color:#0F1324}
+.chip{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.c-urgent{background:var(--alert-soft);color:var(--alert-ink)} .c-improve{background:var(--accent-soft);color:var(--accent)} .c-good{background:var(--line);color:var(--data)}
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.card.legal{border-left:4px solid var(--alert)}
+.card .row{font-size:14px;color:var(--muted)}
+.card .row b{color:var(--fg);font-weight:600}
+.tag{font-size:12px;font-weight:600;color:var(--accent)}
+/* tables */
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--display);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+tr:last-child td{border-bottom:none}
+td.r,th.r{text-align:right}
+/* risks */
+.risk{display:grid;grid-template-columns:200px 1fr;gap:16px;align-items:center}
+.risk .track{height:28px;border-radius:6px;background:transparent}
+.risk .fill{border-radius:6px;display:flex;align-items:center;justify-content:flex-end;padding-right:10px;color:var(--bg);font-weight:600;font-size:14px;min-width:64px}
+/* donut + roi */
+.split{display:grid;grid-template-columns:240px 1fr;gap:32px;align-items:center}
+.legend{display:flex;flex-direction:column;gap:8px;font-size:14px}
+.legend div{display:flex;gap:10px;align-items:center}
+.dot{width:12px;height:12px;border-radius:999px;flex:none}
+.chart{width:100%;height:auto;display:block}
+/* roadmap */
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.phase{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.phase ul{margin:0;padding-left:18px;font-size:14px;display:flex;flex-direction:column;gap:6px}
+.phase .who{font-size:12px;color:var(--muted)}
+.cta{background:var(--accent-soft);border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:14px}
+.cta h2{font-size:26px}
+.cta ul{margin:0;padding-left:18px}
+.fine{font-size:13px;color:var(--muted)}
+@media (max-width:640px){
+  .cover,.split,.phases{grid-template-columns:1fr}
+  .bar{grid-template-columns:110px 1fr 40px;gap:10px}
+  .risk{grid-template-columns:1fr;gap:6px}
+  .score-ring{width:140px;height:140px}
+}
+</style>
+
+<main class="page">
+
+<section class="cover">
+  <div>
+    <p class="eyebrow">Kosmo Team · IT Audit Report</p>
+    <h1>Spreewald Logistik GmbH</h1>
+    <p class="meta">23 October 2026 · Freight forwarder, Berlin-Brandenburg · 34 staff · €4.2M turnover</p>
+    <p style="margin-top:14px"><span class="mock">Mock report · all data invented</span></p>
+  </div>
+  <div class="score-ring" aria-label="Overall score 41 out of 100">
+    <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" fill="none" stroke="var(--line)" stroke-width="10"/><circle cx="60" cy="60" r="52" fill="none" stroke="var(--alert)" stroke-width="10" stroke-linecap="round" stroke-dasharray="134 327" transform="rotate(-90 60 60)"/></svg>
+    <div class="v"><b class="num">41</b><span>out of 100</span></div>
+  </div>
+</section>
+
+<section class="sec">
+  <header><p class="eyebrow">Summary</p><h2>Basic tools work, but legal gaps and untested backups put operations at risk</h2></header>
+  <div class="tiles">
+    <div class="tile"><b class="num">5</b><span>legal gaps, all verified</span></div>
+    <div class="tile"><b class="num">€80k+</b><span>at stake per year</span></div>
+    <div class="tile"><b class="num">€38.7k</b><span>yearly savings found</span></div>
+    <div class="tile"><b class="num">~7.5 months</b><span>payback on fixes</span></div>
+  </div>
+</section>
+
+<section class="sec">
+  <header><p class="eyebrow">Score per area</p><h2>Three areas need urgent action</h2></header>
+  <div class="bars">
+    <div class="bar"><span class="label">Data protection</span><div class="track"><div class="fill f-alert" style="width:25%"></div></div><span class="val num">25</span></div>
+    <div class="bar"><span class="label">Security</span><div class="track"><div class="fill f-alert" style="width:30%"></div></div><span class="val num">30</span></div>
+    <div class="bar"><span class="label">AI use</span><div class="track"><div class="fill f-alert" style="width:35%"></div></div><span class="val num">35</span></div>
+    <div class="bar"><span class="label">Processes</span><div class="track"><div class="fill f-accent" style="width:45%"></div></div><span class="val num">45</span></div>
+    <div class="bar"><span class="label">CRM &amp; customers</span><div class="track"><div class="fill f-accent" style="width:50%"></div></div><span class="val num">50</span></div>
+    <div class="bar"><span class="label">Invoicing</span><div class="track"><div class="fill f-accent" style="width:55%"></div></div><span class="val num">55</span></div>
+    <div class="bar"><span class="label">Website</span><div class="track"><div class="fill f-data" style="width:70%"></div></div><span class="val num">70</span></div>
+  </div>
+  <p class="fine"><span class="chip c-urgent">Urgent</span> below 40 · <span class="chip c-improve">Improve</span> 40–69 · <span class="chip c-good">Good</span> 70+</p>
+</section>
+
+<section class="sec">
+  <header><p class="eyebrow">Scope &amp; method</p><h2>Every finding is verified, not just self-reported</h2></header>
+  <div class="tw"><table>
+    <tr><th>Step</th><th>What we did</th><th class="r">Time</th></tr>
+    <tr><td>Intake form</td><td>52 questions, owner and office manager</td><td class="r">~45 min (you)</td></tr>
+    <tr><td>Kickoff interview</td><td>Processes, tools and pain points</td><td class="r">90 min</td></tr>
+    <tr><td>Remote checks</td><td>MFA, backup restore test, cookie scan, SPF/DKIM/DMARC, user accounts</td><td class="r">4 h</td></tr>
+    <tr><td>Analysis &amp; report</td><td>Scoring, legal mapping, savings, review by 2 experts</td><td class="r">6 h</td></tr>
+    <tr><td>Results call</td><td>Walkthrough and Q&amp;A</td><td class="r">60 min</td></tr>
+  </table></div>
+  <details><summary class="fine">Scoping answers that decide which laws apply</summary>
+  <div class="tw" style="margin-top:12px"><table>
+    <tr><th>Question</th><th>Answer</th><th>Effect</th></tr>
+    <tr><td>Employees</td><td>20–49</td><td>Data Protection Officer required</td></tr>
+    <tr><td>Turnover</td><td>€2–10M</td><td>Must send e-invoices from 2027</td></tr>
+    <tr><td>Sector</td><td>Transport</td><td>NIS2 sector, below size threshold</td></tr>
+    <tr><td>Customers</td><td>B2B</td><td>Accessibility act not triggered</td></tr>
+    <tr><td>Online presence</td><td>Website, no shop</td><td>Impressum, cookie consent</td></tr>
+    <tr><td>Sensitive data</td><td>Driver licences, health certificates</td><td>Extra protection, impact assessment</td></tr>
+    <tr><td>AI use</td><td>Staff use ChatGPT ad-hoc</td><td>AI literacy duty</td></tr>
+    <tr><td>Critical infrastructure</td><td>Supplies food retail chains</td><td>NIS2 supply-chain questions</td></tr>
+  </table></div></details>
+</section>
+
+<section class="sec">
+  <header><p class="eyebrow">Laws &amp; standards</p><h2>Six laws apply; best practice follows five standards</h2></header>
+  <div class="cards">
+    <div class="card"><h3>Laws</h3>
+      <div class="row"><b>DSGVO / BDSG</b> · customer and employee data</div>
+      <div class="row"><b>EU AI Act Art. 4</b> · staff use AI tools</div>
+      <div class="row"><b>GoBD</b> · digital bookkeeping</div>
+      <div class="row"><b>E-invoicing</b> · sending mandatory from 2027</div>
+      <div class="row"><b>DDG / TDDDG</b> · Impressum, cookies</div>
+      <div class="row"><b>NIS2 (indirect)</b> · retail customers demand proof</div></div>
+    <div class="card"><h3>Standards</h3>
+      <div class="row"><b>DIN SPEC 27076</b> · main benchmark, under 50 staff</div>
+      <div class="row"><b>BSI IT-Grundschutz</b> · guidance per topic</div>
+      <div class="row"><b>CIS Controls v8 IG1</b> · technical baseline</div>
+      <div class="row"><b>ISO/IEC 27001</b> · asked by larger customers</div>
+      <div class="row"><b>VdS 10000</b> · used by cyber insurers</div></div>
+  </div>
+</section>
+
+<section class="sec">
+  <header><p class="eyebrow">Must fix · legal</p><h2>Five legal gaps</h2><p class="lead">Each can lead to fines or lost contracts.</p></header>
+  <div class="cards">
+    <div class="card legal"><span class="tag">BDSG §38</span><h3>No Data Protection Officer</h3><p class="row">Required at 20+ staff handling personal data.</p><p class="row"><b>Evidence:</b> none named in privacy policy</p></div>
+    <div class="card legal"><span class="tag">DSGVO Art. 30</span><h3>No record of processing</h3><p class="row">Authorities can request it at any time.</p><p class="row"><b>Evidence:</b> requested, none exists</p></div>
+    <div class="card legal"><span class="tag">DSGVO Art. 28</span><h3>4 processing agreements missing</h3><p class="row">Every provider handling your data needs one.</p><p class="row"><b>Evidence:</b> dispatch tool, Dropbox, TeamViewer, newsletter</p></div>
+    <div class="card legal"><span class="tag">AI Act Art. 4</span><h3>No AI rules or training</h3><p class="row">Customer data goes into ChatGPT without rules.</p><p class="row"><b>Evidence:</b> 6 of 9 office staff use it</p></div>
+    <div class="card legal"><span class="tag">TDDDG §25</span><h3>Cookie banner pre-ticked</h3><p class="row">Consent must be active; common warning-letter target.</p><p class="row"><b>Evidence:</b> 3 trackers load before consent</p></div>
+  </div>
+</section>
+
+<section class="sec">
+  <header><p class="eyebrow">Best practice</p><h2>Gaps that cost time or raise risk</h2></header>
+  <div class="tw"><table>
+    <tr><th>Gap</th><th>Evidence</th><th>Reference</th></tr>
+    <tr><td>No MFA on email and cloud</td><td>0 of 34 accounts</td><td>DIN SPEC 27076; CIS 6</td></tr>
+    <tr><td>Backups never tested</td><td>Restore failed; last usable backup 5 weeks old</td><td>DIN SPEC 27076; BSI CON.3; CIS 11</td></tr>
+    <tr><td>Shared dispatch login</td><td>1 login, 7 people</td><td>BSI ORP.4; CIS 5</td></tr>
+    <tr><td>No offboarding</td><td>2 former drivers still active</td><td>BSI ORP.2; CIS 5</td></tr>
+    <tr><td>Email domain unprotected</td><td>DMARC missing</td><td>BSI APP.5.3; CIS 9</td></tr>
+    <tr><td>No tool training; workarounds persist</td><td>No onboarding; Excel lists in use</td><td>ISO/IEC 27001 A.6.3</td></tr>
+    <tr><td>Orders typed into 3 systems</td><td>~18 h/week</td><td>Efficiency</td></tr>
+    <tr><td>Contacts in Excel and Outlook</td><td>3 separate lists</td><td>Efficiency</td></tr>
+    <tr><td>Delivery questions by phone</td><td>~6 h/week</td><td>Efficiency</td></tr>
+  </table></div>
+</section>
+
+<section class="sec">
+  <header><p class="eyebrow">Top risks</p><h2>€80k+ at stake every year</h2></header>
+  <div class="bars">
+    <div class="risk"><span>Ransomware outage (3 days)</span><div class="track"><div class="fill f-alert" style="width:100%">€50k</div></div></div>
+    <div class="risk"><span>Manual order entry</span><div class="track"><div class="fill f-accent" style="width:58%">€29k</div></div></div>
+    <div class="risk"><span>Delivery questions by phone</span><div class="track"><div class="fill f-accent" style="width:19.4%">€9.7k</div></div></div>
+    <div class="risk"><span>Overlapping tools</span><div class="track"><div class="fill f-data" style="width:5.8%">€2.9k</div></div></div>
+  </div>
+  <p class="fine">Outage at €16.8k turnover per working day. Hours at €35, 46 weeks. Losing NIS2-bound retail contracts and GDPR fines come on top.</p>
+</section>
+
+<section class="sec">
+  <header><p class="eyebrow">Tool spend</p><h2>Cut 2 of 8 paid tools, save €2.9k a year</h2></header>
+  <div class="split">
+    <svg class="chart" viewBox="0 0 200 200" role="img" aria-label="Monthly tool spend €1,200">
+      <g transform="rotate(-90 100 100)" fill="none" stroke-width="28">
+        <circle cx="100" cy="100" r="70" stroke="var(--accent)" stroke-dasharray="164.9 274.9"/>
+        <circle cx="100" cy="100" r="70" stroke="var(--data)" stroke-dasharray="80.6 359.2" stroke-dashoffset="-164.9"/>
+        <circle cx="100" cy="100" r="70" stroke="var(--muted)" stroke-dasharray="69.6 370.2" stroke-dashoffset="-245.5"/>
+        <circle cx="100" cy="100" r="70" stroke="var(--alert)" stroke-dasharray="66 373.8" stroke-dashoffset="-315.1"/>
+        <circle cx="100" cy="100" r="70" stroke="var(--alert)" stroke-opacity=".55" stroke-dasharray="22 417.8" stroke-dashoffset="-381.1"/>
+        <circle cx="100" cy="100" r="70" stroke="var(--line)" stroke-dasharray="36.7 403.1" stroke-dashoffset="-403.1"/>
+      </g>
+      <text x="100" y="98" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="24" font-weight="700" fill="var(--fg)">€1,200</text>
+      <text x="100" y="118" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="var(--muted)">per month</text>
+    </svg>
+    <div class="legend">
+      <div><span class="dot" style="background:var(--accent)"></span>Dispatch software · €450 · keep, connect via API</div>
+      <div><span class="dot" style="background:var(--data)"></span>Telematics · €220 · keep, feed chatbot</div>
+      <div><span class="dot" style="background:var(--muted)"></span>Microsoft 365 · €190 · keep, add MFA</div>
+      <div><span class="dot" style="background:var(--alert)"></span><b>Dropbox · €180 · cancel</b> (duplicates OneDrive)</div>
+      <div><span class="dot" style="background:var(--alert);opacity:.55"></span><b>TeamViewer · €60 · cancel</b> (used twice in 6 months)</div>
+      <div><span class="dot" style="background:var(--line)"></span>lexoffice, newsletter, hosting · €100 · keep</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <header><p class="eyebrow">Roadmap</p><h2>Fixed in 90 days</h2></header>
+  <div class="phases">
+    <div class="phase"><h3>Days 1–30</h3><span class="who">You, no outside help</span><ul><li>MFA on all accounts</li><li>Close former staff accounts</li><li>Fix and test backups</li><li>Fix cookies, add DMARC</li><li>Interim AI rule</li><li>Cancel Dropbox, TeamViewer</li></ul></div>
+    <div class="phase"><h3>Days 31–60</h3><span class="who">With Kosmo Team</span><ul><li>Kickoff workshop, AI literacy</li><li>DPO, GDPR records, agreements</li><li>AI usage policy</li><li>Individual dispatch logins</li></ul></div>
+    <div class="phase"><h3>Days 61–90</h3><span class="who">With Kosmo Team</span><ul><li>Order automation</li><li>CRM setup + training</li><li>Adoption check-ins</li><li>E-Rechnung ready before 1.1.2027</li></ul></div>
+  </div>
+</section>
+
+<section class="sec">
+  <header><p class="eyebrow">Packages &amp; ROI</p><h2>Savings pass the investment around month 7.5</h2></header>
+  <svg class="chart" viewBox="0 0 640 260" role="img" aria-label="Cumulative savings reach €38.7k in 12 months, crossing the €24k investment at about month 7.5">
+    <g stroke="var(--line)" stroke-width="1"><line x1="56" y1="220" x2="620" y2="220"/><line x1="56" y1="120" x2="620" y2="120"/><line x1="56" y1="20" x2="620" y2="20"/></g>
+    <g font-family="Inter, sans-serif" font-size="12" fill="var(--muted)"><text x="48" y="224" text-anchor="end">€0</text><text x="48" y="124" text-anchor="end">€20k</text><text x="48" y="24" text-anchor="end">€40k</text><text x="56" y="244">Month 0</text><text x="338" y="244" text-anchor="middle">Month 6</text><text x="620" y="244" text-anchor="end">Month 12</text></g>
+    <line x1="56" y1="100" x2="620" y2="100" stroke="var(--alert)" stroke-width="3" stroke-dasharray="8 6"/>
+    <line x1="56" y1="220" x2="620" y2="26.5" stroke="var(--data)" stroke-width="4"/>
+    <circle cx="406" cy="100" r="7" fill="var(--accent)"/>
+    <text x="414" y="89" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="var(--accent)">Break-even</text>
+    <text x="616" y="93" text-anchor="end" font-family="Inter, sans-serif" font-size="12" fill="var(--alert-ink)">€24k investment</text>
+    <text x="600" y="44" text-anchor="end" font-family="Inter, sans-serif" font-size="12" fill="var(--data)">€38.7k savings</text>
+  </svg>
+  <div class="tw"><table>
+    <tr><th>#</th><th>Package</th><th class="r">Price*</th><th>Effect per year</th></tr>
+    <tr><td><span class="chip c-urgent">1</span></td><td>GDPR &amp; AI Act starter</td><td class="r num">€3,500</td><td>Fine and contract risk removed</td></tr>
+    <tr><td><span class="chip c-urgent">2</span></td><td>Security baseline</td><td class="r num">€2,500</td><td>~€50k outage exposure cut</td></tr>
+    <tr><td><span class="chip c-urgent">3</span></td><td>Change management &amp; rollout</td><td class="r num">€1,500</td><td>Kickoff, tool training, 2 adoption check-ins: people actually use the new tools</td></tr>
+    <tr><td><span class="chip c-improve">4</span></td><td>Order automation</td><td class="r num">€8,000</td><td>€29k saved</td></tr>
+    <tr><td><span class="chip c-improve">5</span></td><td>CRM setup</td><td class="r num">€4,000</td><td>Fewer lost leads</td></tr>
+    <tr><td><span class="chip c-improve">6</span></td><td>Delivery-status chatbot</td><td class="r num">€3,000</td><td>€9.7k saved</td></tr>
+    <tr><td><span class="chip c-urgent">7</span></td><td>E-Rechnung ready</td><td class="r num">€1,500</td><td>Legal from 1.1.2027; faster invoicing</td></tr>
+  </table></div>
+  <p class="fine">*Placeholder prices. €24,000 one-off for all seven packages. Savings assumed evenly spread; risk reduction not counted.</p>
+</section>
+
+<section class="cta">
+  <p class="eyebrow">Next step</p>
+  <h2>Book any package within 60 days and the €1,000 audit fee is credited</h2>
+  <p>Included with this audit:</p>
+  <ul><li>AI usage policy template</li><li>Offboarding checklist</li><li>Record of processing starter, pre-filled with your tools</li><li>Backup restore test guide</li></ul>
+  <p>A re-audit in 6 months shows your before and after, including real savings.</p>
+</section>
+
+<p class="fine">This is a compliance and IT check, not legal advice. It is aligned with, not certified against, the standards listed. Legal points should be confirmed with a lawyer. Kosmo Team · kosmo.team</p>
+
+</main>

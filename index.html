@@ -116,6 +116,16 @@ footer a{color:var(--muted)}
 </section>
 
 
+<section id="services" style="border-top:1px solid var(--line)"><div class="wrap" style="display:flex;flex-direction:column;gap:40px">
+  <div style="display:flex;flex-direction:column;gap:8px"><span class="eyebrow" data-k="svcEyebrow"></span><h2 data-k="svcTitle"></h2></div>
+  <div class="grid" id="svcs"></div>
+</div></section>
+
+<section id="results" style="border-top:1px solid var(--line)"><div class="wrap" style="display:flex;flex-direction:column;gap:40px">
+  <div style="display:flex;flex-direction:column;gap:8px"><span class="eyebrow c" data-k="outEyebrow"></span><h2 data-k="outTitle"></h2><p class="muted" style="margin:0;max-width:640px" data-k="outSub"></p></div>
+  <div class="grid" id="out-list"></div>
+</div></section>
+
 <section class="band"><div class="wrap" style="display:flex;flex-direction:column;gap:40px;padding:80px 24px">
   <div style="display:flex;flex-direction:column;gap:8px"><span class="eyebrow" data-k="painsEyebrow"></span><h2 data-k="painsTitle"></h2></div>
   <div class="grid" id="pains"></div>
@@ -134,6 +144,11 @@ footer a{color:var(--muted)}
   </div>
 </div></section>
 
+<section id="team" class="band"><div class="wrap" style="display:flex;flex-direction:column;gap:40px">
+  <div style="display:flex;flex-direction:column;gap:8px"><span class="eyebrow" data-k="teamEyebrow"></span><h2 data-k="teamTitle"></h2></div>
+  <div class="grid" id="team-list" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))"></div>
+</div></section>
+
 <section id="check"><div class="wrap check">
   <div class="l">
     <span class="eyebrow c" data-k="checkEyebrow"></span>
@@ -143,6 +158,7 @@ footer a{color:var(--muted)}
       <div style="display:flex;flex-direction:column;gap:12px"><h3 style="margin:0;font-size:17px" data-k="inclTitle"></h3><div id="incl" style="display:flex;flex-direction:column;gap:12px"></div></div>
       <div style="display:flex;flex-direction:column;gap:12px"><h3 style="margin:0;font-size:17px" data-k="resTitle"></h3><div id="res" style="display:flex;flex-direction:column;gap:12px"></div></div>
     </div>
+    <a href="beispielbericht/" target="_blank" rel="noopener" style="font-size:15px" data-k="sampleLink"></a>
   </div>
   <div class="r">
     <span class="eyebrow" style="color:var(--gold)" data-k="priceLabel"></span>
@@ -150,16 +166,6 @@ footer a{color:var(--muted)}
     <span style="font-size:15px;line-height:22px;color:var(--text)" data-k="priceNote"></span>
     <a class="btn" href="#contact" style="margin-top:8px" data-k="heroCta1"></a>
   </div>
-</div></section>
-
-<section id="services" style="border-top:1px solid var(--line)"><div class="wrap" style="display:flex;flex-direction:column;gap:40px">
-  <div style="display:flex;flex-direction:column;gap:8px"><span class="eyebrow" data-k="svcEyebrow"></span><h2 data-k="svcTitle"></h2></div>
-  <div class="grid" id="svcs"></div>
-</div></section>
-
-<section id="results" class="band"><div class="wrap" style="display:flex;flex-direction:column;gap:40px">
-  <div style="display:flex;flex-direction:column;gap:8px"><span class="eyebrow c" data-k="outEyebrow"></span><h2 data-k="outTitle"></h2><p class="muted" style="margin:0;max-width:640px" data-k="outSub"></p></div>
-  <div class="grid" id="out-list"></div>
 </div></section>
 
 <section aria-labelledby="fund-title"><div class="wrap" style="padding:72px 24px">
@@ -173,28 +179,14 @@ footer a{color:var(--muted)}
       <a class="btn" href="#contact" style="background:#D4A84B;color:#0B1026" data-k="fundCta"></a>
       <button class="btn ghost" type="button" id="fin-toggle" aria-expanded="false" aria-controls="fin-panel" style="border-color:#D4A84B;color:#D4A84B"></button>
     </div>
+    <a href="insights/kfw-digitalisierung/" style="font-size:15px;color:#D4A84B;align-self:center" data-k="fundMore"></a>
     <div id="fin-panel" style="display:none;flex-basis:100%;border-top:1px solid rgba(255,181,71,.35);padding-top:24px;flex-direction:column;gap:24px"></div>
   </div>
 </div></section>
 
-<section id="team" class="band"><div class="wrap" style="display:flex;flex-direction:column;gap:40px">
-  <div style="display:flex;flex-direction:column;gap:8px"><span class="eyebrow" data-k="teamEyebrow"></span><h2 data-k="teamTitle"></h2></div>
-  <div class="grid" id="team-list"></div>
-</div></section>
-
-<section id="partners" style="border-top:1px solid var(--line)"><div class="wrap" style="display:flex;flex-direction:column;gap:32px;padding:80px 24px">
-  <div style="display:flex;flex-direction:column;gap:8px"><span class="eyebrow" data-k="partEyebrow"></span><h2 data-k="partTitle"></h2></div>
-  <div class="grid">
-    <div class="card" style="background:var(--panel)">
-      <span class="eyebrow" data-k="partPillar"></span>
-      <div style="display:flex;gap:16px;align-items:center">
-        <div class="ava" aria-hidden="true"></div>
-        <div style="display:flex;flex-direction:column;gap:2px"><h3>[NAME]</h3><span class="eyebrow c" data-k="partRole"></span></div>
-      </div>
-      <p data-k="partText"></p>
-      <a href="#partners" style="font-size:15px"><span data-k="partLink"></span> ↗</a>
-    </div>
-  </div>
+<section id="methods" class="band"><div class="wrap" style="display:flex;flex-direction:column;gap:40px">
+  <div style="display:flex;flex-direction:column;gap:8px"><span class="eyebrow c" data-k="methEyebrow"></span><h2 data-k="methTitle"></h2><p class="muted" style="margin:0;max-width:640px" data-k="methSub"></p></div>
+  <div class="grid" id="meth-list"></div>
 </div></section>
 
 <section id="faq" style="border-top:1px solid var(--line)"><div class="wrap" style="display:flex;flex-direction:column;gap:32px">
@@ -233,6 +225,9 @@ var L = {
     faqEyebrow: 'FAQ', faqTitle: 'Частые вопросы',
     faq: [['Как вы измеряете, что проект сработал?', 'До старта мы вместе с вами выбираем 1–3 показателя, например часы на рутину в неделю или время ответа на заявку, и фиксируем исходные значения. После запуска измеряем их снова и показываем результат «было / стало» в вашем личном кабинете.'], ['Что будет после внедрения?', 'По желанию проводим ревью через 30 и 90 дней: проверяем показатели, смотрим, что изменилось в бизнесе, и предлагаем следующие шаги. Ревью оплачивается отдельно. Также можем разработать стратегию change management, провести воркшопы и коучинг для команды, чтобы новые инструменты действительно прижились.'], ['По какой методике вы ведёте AI-проекты?', 'Мы опираемся на CPMAI — методику PMI для управления проектами с ИИ. Она идёт в шесть итеративных шагов: понимание бизнес-задачи, понимание данных, подготовка данных, разработка модели, оценка модели и запуск в работу. Главный вопрос в начале: нужен ли здесь ИИ вообще или хватит обычной автоматизации. Для AI-проектов мы используем CPMAI, а её принципы переносим на все проекты цифровизации — CRM, автоматизацию, работу с данными.']],
     draft: 'Черновик — макет, не коммерческое предложение',
+    sampleLink: 'Посмотреть пример отчёта (вымышленная компания, на английском) →', fundMore: 'Подробнее о KfW 511/512 (статья на немецком) →',
+    methEyebrow: 'Как мы работаем', methTitle: 'Наши методики', methSub: 'Опираемся на подходы Project Management Institute (PMI). Kosmo Team не связан с PMI.',
+    meth: [['M.O.R.E.: польза, а не галочки', 'Ведём проект к результату для бизнеса: цели до старта, показатели после запуска, регулярная сверка с вашими задачами.', 'insights/more-projektnutzen/', 'Статья о M.O.R.E. (DE) →'], ['CPMAI: AI-проекты, которые работают', 'Шесть итеративных шагов от бизнес-задачи до работы в повседневности. Для AI-проектов — методика, для остальных — её принципы.', 'insights/cpmai/', 'Статья о CPMAI (DE) →']],
     navCheck: 'IT-Check', navServices: 'Услуги', navTeam: 'Команда', navInsights: 'Знания', navContact: 'Контакты', navCta: 'Записаться на звонок',
     eyebrow: 'IT- и Digital-консалтинг для предпринимателей в DACH',
     heroA: 'Делай своё дело.', heroB: 'Остальное — на нас.',
@@ -242,8 +237,8 @@ var L = {
     partEyebrow: 'Партнёры', partTitle: 'С кем мы работаем', partPillar: '4-е направление: люди и изменения', partRole: 'Коучинг и change management, Берлин', partText: 'Воркшопы и тимбилдинг. Помогает команде легко принять новые инструменты и процессы.', partLink: 'Instagram и сайт',
     fin: {"toggle": "Как профинансировать проект", "close": "Свернуть", "howTitle": "Как это работает", "steps": ["IT-Check: определяем нужные меры и составляем план с бюджетом.", "KfW Digitalisierungs-Check: бесплатная онлайн-проверка (нужна для этапа 1).", "Заявка через ваш банк до начала проекта: мы готовим описание, смету и этапы.", "Внедрение после одобрения кредита."], "stagesTitle": "Что финансирует KfW", "stages": [{"h": "Этап 1", "b": "IT-инфраструктура, софт, базовая защита, облако, обучение. Льготный кредит."}, {"h": "Этап 2", "b": "IT-безопасность: ISO 27001, концепция безопасности, обучение. Кредит и грант."}, {"h": "Этап 3", "b": "Проекты ИИ и Big Data на данных компании. Кредит и грант."}], "who": "Кому подходит: малому и среднему бизнесу в Германии, включая ИП и фрилансеров. Требований к возрасту компании нет.", "impTitle": "Важно", "imp": ["Договор на внедрение подписывается только после подачи заявки, иначе финансирование невозможно.", "Решение принимают банк и KfW. Мы не гарантируем одобрение.", "Условия программы меняются, актуальные данные — на сайте KfW."], "kfw": "Условия KfW"},
     facts: [['1 звонок', 'знакомство и разбор целей'], ['2 недели', 'на аудит и отчёт'], ['3 эксперта', 'процессы, технологии, люди']],
-    painsEyebrow: 'Знакомо?', painsTitle: 'Одна голова хорошо, а три лучше',
-    pains: [['Данные разбросаны по разным системам', 'CRM, таблицы и мессенджеры не связаны между собой, поэтому полной картины нет и данные приходится переносить вручную.'], ['Законы меняются быстрее, чем вы успеваете разобраться', 'E-Rechnung, DSGVO, NIS2, EU AI Act: требований всё больше, сроки идут, а что из этого касается именно вас, неясно.'], ['Один IT-специалист не может знать всё', 'Инфраструктура, безопасность, автоматизация, ИИ, данные, сайт: это разные профессии. Один человек не закроет всё, а если он уходит в отпуск или увольняется, знания уходят вместе с ним.'], ['Команда не пользуется новыми инструментами', 'CRM купили, автоматизацию настроили, а работают по-старому: в Excel и мессенджерах. Без обучения и поддержки экономия остаётся на бумаге.']],
+    painsEyebrow: 'Знакомо?', painsTitle: 'Что мешает вашему бизнесу расти',
+    pains: [['Данные разбросаны по разным системам', 'CRM, таблицы и мессенджеры не связаны между собой, поэтому полной картины нет и данные приходится переносить вручную.'], ['Законы меняются быстрее, чем вы успеваете разобраться', 'E-Rechnung, DSGVO, NIS2, EU AI Act: требований всё больше, сроки идут, а что из этого касается именно вас, неясно.'], ['Одна голова хорошо, а три лучше', 'Один IT-специалист не может знать всё. Инфраструктура, безопасность, автоматизация, ИИ, данные, сайт: это разные профессии. Один человек не закроет всё, а если он уходит в отпуск или увольняется, знания уходят вместе с ним.'], ['Команда не пользуется новыми инструментами', 'CRM купили, автоматизацию настроили, а работают по-старому: в Excel и мессенджерах. Без обучения и поддержки экономия остаётся на бумаге.']],
     checkEyebrow: 'Первый шаг', checkTitle: 'IT-Check за 2 недели',
     checkSub: 'Фиксированная цена и понятный результат. Если после аудита заказываете внедрение, стоимость IT-Check засчитывается.',
     inclTitle: 'Что проверяем', incl: ['Стек и все подписки', 'Безопасность и DSGVO (базово)', '2–3 ключевых процесса и где в них поможет ИИ', 'Сайт и путь клиента (UX)'],
@@ -252,7 +247,7 @@ var L = {
     svcEyebrow: 'Что дальше', svcTitle: 'От аудита до постоянной поддержки',
     svcs: [['Знакомство', 'Бесплатный звонок о вашем бизнесе и целях.'], ['IT-Check', 'Аудит и отчёт с цифрами и приоритетами.'], ['Внедрение', 'Автоматизация, ИИ-ассистенты, CRM, редизайн сайта.'], ['IT-отдел на аутсорсе', 'Поддержка, безопасность и обновления по подписке.']],
     teamEyebrow: 'Команда', teamTitle: 'Три эксперта, один подрядчик', teamPartner: 'Партнёр: коучинг, воркшопы и change management, включая обучение команды защите от фишинга.',
-    team: [['Бизнес, автоматизация и AI', '10+ лет международных B2B-продаж. Автоматизация процессов с ИИ, AI и Data Governance, внедрение по EU AI Act.', 'Процессы'], ['Разработка, DevOps и безопасность', 'Кастомные решения и интеграции, облачная инфраструктура, CI/CD. Аудит рисков, NIS2 и защита данных по DSGVO.', 'Технологии'], ['UI/UX и digital-маркетинг', 'Сайты, которые приводят клиентов: понятный путь пользователя, конверсия, продвижение в соцсетях и поиске.', 'Люди']],
+    team: [['Бизнес, автоматизация и AI', '10+ лет международных B2B-продаж. Автоматизация процессов с ИИ, AI и Data Governance, внедрение по EU AI Act.', 'Процессы'], ['Разработка, DevOps и безопасность', 'Кастомные решения и интеграции, облачная инфраструктура, CI/CD. Аудит рисков, NIS2 и защита данных по DSGVO.', 'Технологии'], ['UI/UX и digital-маркетинг', 'Сайты, которые приводят клиентов: понятный путь пользователя, конверсия, продвижение в соцсетях и поиске.', 'Люди'], ['Коучинг и change management', 'Партнёр Kosmo Team, Берлин. Воркшопы, тимбилдинг и коучинг: помогает команде принять новые инструменты и процессы.', 'Люди и изменения']],
     ctTitle: 'Расскажите о вашем бизнесе', ctSub: 'Первый звонок 30 минут, без обязательств. Ответим в течение рабочего дня.',
     fName: 'Имя', fCompany: 'Компания', fMsg: 'Что сейчас мешает больше всего?', fSend: 'Отправить', fNote: 'Нажимая «Отправить», вы соглашаетесь с политикой конфиденциальности.'
   },
@@ -262,6 +257,9 @@ var L = {
     faqEyebrow: 'FAQ', faqTitle: 'Frequently asked questions',
     faq: [['How do you measure whether the project worked?', 'Before we start, we pick 1–3 numbers with you, such as hours spent on routine work per week or time to reply to a lead, and record the starting values. After launch we measure them again and show the before/after in your client portal.'], ['What happens after implementation?', 'If you want, we run reviews after 30 and 90 days: we check the numbers, look at what changed in your business and suggest next steps. Reviews are billed separately. We can also build a change management strategy and run workshops and coaching for your team, so the new tools actually stick.'], ['Which method do you use for AI projects?', 'We follow CPMAI, the Project Management Institute (PMI) methodology for managing AI projects. It runs in six iterative phases: business understanding, data understanding, data preparation, model development, model evaluation and model operationalization. The first question is always whether you need AI at all or whether simple automation is enough. We use CPMAI for AI projects and apply its principles to all digitalisation projects, such as CRM, automation and data work.']],
     draft: 'Draft — design mock-up, not a commercial offer',
+    sampleLink: 'See a sample report (fictional company) →', fundMore: 'More on KfW 511/512 (article in German) →',
+    methEyebrow: 'How we work', methTitle: 'Our methods', methSub: 'We build on approaches from the Project Management Institute (PMI). Kosmo Team is not affiliated with PMI.',
+    meth: [['M.O.R.E.: value, not checkboxes', 'We steer projects toward business results: goals before we start, numbers after launch, regular check-ins against your goals.', 'insights/more-projektnutzen/', 'Article on M.O.R.E. (DE) →'], ['CPMAI: AI projects that work', 'Six iterative steps from business problem to day-to-day use. The method for AI projects, its principles for everything else.', 'insights/cpmai/', 'Article on CPMAI (DE) →']],
     navCheck: 'IT-Check', navServices: 'Services', navTeam: 'Team', navInsights: 'Insights', navContact: 'Contact', navCta: 'Book a call',
     eyebrow: 'IT & digital consulting for business owners in DACH',
     heroA: 'Do your thing.', heroB: 'We’ll handle the rest.',
@@ -271,8 +269,8 @@ var L = {
     partEyebrow: 'Partners', partTitle: 'Who we work with', partPillar: '4th pillar: people and change', partRole: 'Coaching & change management, Berlin', partText: 'Workshops and team building. Helps your team adopt new tools and processes with ease.', partLink: 'Instagram and website',
     fin: {"toggle": "How to finance your project", "close": "Collapse", "howTitle": "How it works", "steps": ["IT-Check: we define the measures and draw up a plan with a budget.", "KfW Digitalisierungs-Check: a free online check (required for stage 1).", "Application through your bank before the project starts: we prepare the description, cost estimate and phases.", "Implementation once the loan is approved."], "stagesTitle": "What KfW finances", "stages": [{"h": "Stage 1", "b": "IT infrastructure, software, basic security, cloud, training. Low-interest loan."}, {"h": "Stage 2", "b": "IT security: ISO 27001, security concept, training. Loan plus grant."}, {"h": "Stage 3", "b": "AI and big data projects on company data. Loan plus grant."}], "who": "Who qualifies: small and medium-sized businesses in Germany, including sole traders and freelancers. No minimum company age.", "impTitle": "Important", "imp": ["Sign the implementation contract only after applying, otherwise funding is not possible.", "The bank and KfW decide. We cannot guarantee approval.", "Programme terms change; check KfW for current details."], "kfw": "KfW terms"},
     facts: [['1 call', 'to get to know your business and goals'], ['2 weeks', 'for audit and report'], ['3 experts', 'process, technology, people']],
-    painsEyebrow: 'Sound familiar?', painsTitle: 'Three heads are better than one',
-    pains: [['Data scattered across systems', 'CRM, spreadsheets and messengers don’t talk to each other, so there’s no full picture and data is moved by hand.'], ['Laws change faster than you can keep up', 'E-invoicing, GDPR, NIS2, the EU AI Act: the requirements keep growing, deadlines keep coming, and it’s unclear which ones apply to you.'], ['One IT person can’t know everything', 'Infrastructure, security, automation, AI, data, website: these are different professions. One person can’t cover it all, and when they go on holiday or leave, their knowledge goes too.'], ['Your team doesn’t use the new tools', 'You bought a CRM and set up automation, but people still work the old way, in Excel and messengers. Without training and support, the savings stay on paper.']],
+    painsEyebrow: 'Sound familiar?', painsTitle: 'What holds your business back',
+    pains: [['Data scattered across systems', 'CRM, spreadsheets and messengers don’t talk to each other, so there’s no full picture and data is moved by hand.'], ['Laws change faster than you can keep up', 'E-invoicing, GDPR, NIS2, the EU AI Act: the requirements keep growing, deadlines keep coming, and it’s unclear which ones apply to you.'], ['Three heads are better than one', 'One IT person can’t know everything. Infrastructure, security, automation, AI, data, website: these are different professions. One person can’t cover it all, and when they go on holiday or leave, their knowledge goes too.'], ['Your team doesn’t use the new tools', 'You bought a CRM and set up automation, but people still work the old way, in Excel and messengers. Without training and support, the savings stay on paper.']],
     checkEyebrow: 'First step', checkTitle: 'IT-Check in 2 weeks',
     checkSub: 'A fixed price and a clear result. If you book implementation afterwards, the IT-Check fee is credited.',
     inclTitle: 'What we review', incl: ['Your stack and all subscriptions', 'Security and GDPR basics', '2–3 key processes and where AI can help', 'Website and customer journey (UX)'],
@@ -281,7 +279,7 @@ var L = {
     svcEyebrow: 'What comes next', svcTitle: 'From audit to ongoing support',
     svcs: [['Intro call', 'A free call about your business and goals.'], ['IT-Check', 'Audit and report with numbers and priorities.'], ['Implementation', 'Automation, AI assistants, CRM, website redesign.'], ['Outsourced IT team', 'Support, security and updates on a subscription.']],
     teamEyebrow: 'Team', teamTitle: 'Three experts, one partner', teamPartner: 'Partner: coaching, workshops and change management, including phishing awareness training for your team.',
-    team: [['Business, automation & AI', '10+ years in international B2B sales. AI-powered process automation, AI & data governance, EU AI Act compliance.', 'Process'], ['Development, DevOps & security', 'Custom solutions and integrations, cloud infrastructure, CI/CD. Risk audits, NIS2 and GDPR data protection.', 'Technology'], ['UI/UX & digital marketing', 'Websites that bring in customers: clear user journeys, conversion, social media and search promotion.', 'People']],
+    team: [['Business, automation & AI', '10+ years in international B2B sales. AI-powered process automation, AI & data governance, EU AI Act compliance.', 'Process'], ['Development, DevOps & security', 'Custom solutions and integrations, cloud infrastructure, CI/CD. Risk audits, NIS2 and GDPR data protection.', 'Technology'], ['UI/UX & digital marketing', 'Websites that bring in customers: clear user journeys, conversion, social media and search promotion.', 'People'], ['Coaching & change management', 'Kosmo Team partner, Berlin. Workshops, team building and coaching that help your team adopt new tools and processes.', 'People & change']],
     ctTitle: 'Tell us about your business', ctSub: 'A 30-minute first call, no strings attached. We reply within one business day.',
     fName: 'Name', fCompany: 'Company', fMsg: 'What slows you down most right now?', fSend: 'Send', fNote: 'By clicking “Send” you agree to our privacy policy.'
   },
@@ -291,6 +289,9 @@ var L = {
     faqEyebrow: 'FAQ', faqTitle: 'Häufige Fragen',
     faq: [['Wie messen Sie, ob das Projekt funktioniert hat?', 'Vor dem Start wählen wir mit Ihnen 1–3 Kennzahlen, etwa Stunden pro Woche für Routinearbeit oder die Antwortzeit auf Anfragen, und halten die Ausgangswerte fest. Nach dem Start messen wir erneut und zeigen den Vorher-Nachher-Vergleich in Ihrem Kundenportal.'], ['Was passiert nach der Umsetzung?', 'Auf Wunsch führen wir Reviews nach 30 und 90 Tagen durch: Wir prüfen die Kennzahlen, schauen, was sich in Ihrem Unternehmen verändert hat, und schlagen nächste Schritte vor. Reviews werden separat berechnet. Außerdem entwickeln wir auf Wunsch eine Change-Management-Strategie und bieten Workshops und Coaching für Ihr Team an, damit die neuen Tools wirklich im Alltag ankommen.'], ['Nach welcher Methode setzen Sie KI-Projekte um?', 'Wir arbeiten nach CPMAI, der Methode des Project Management Institute (PMI) für KI-Projekte. Sie läuft in sechs iterativen Phasen: Geschäftsverständnis, Datenverständnis, Datenaufbereitung, Modellentwicklung, Modellbewertung und Inbetriebnahme. Die erste Frage ist immer, ob Sie überhaupt KI brauchen oder ob einfache Automatisierung reicht. Für KI-Projekte nutzen wir CPMAI. Die Grundsätze übertragen wir auf alle Digitalisierungsprojekte, etwa CRM, Automatisierung und Datenprojekte.']],
     draft: 'Entwurf — Design-Mock-up, kein Angebot',
+    sampleLink: 'Beispielbericht ansehen (fiktives Unternehmen, auf Englisch) →', fundMore: 'Mehr zur KfW-Förderung 511/512 →',
+    methEyebrow: 'So arbeiten wir', methTitle: 'Unsere Methoden', methSub: 'Wir stützen uns auf Ansätze des Project Management Institute (PMI). Kosmo Team ist nicht mit dem PMI verbunden.',
+    meth: [['M.O.R.E.: Nutzen statt Häkchen', 'Wir führen Projekte zum Geschäftsergebnis: Ziele vor dem Start, Kennzahlen nach dem Start, regelmäßiger Abgleich mit Ihren Zielen.', 'insights/more-projektnutzen/', 'Artikel zu M.O.R.E. →'], ['CPMAI: KI-Projekte, die funktionieren', 'Sechs iterative Schritte vom Geschäftsproblem bis zum Alltag. Für KI-Projekte die Methode, für alle anderen ihre Grundsätze.', 'insights/cpmai/', 'Artikel zu CPMAI →']],
     navCheck: 'IT-Check', navServices: 'Leistungen', navTeam: 'Team', navInsights: 'Wissen', navContact: 'Kontakt', navCta: 'Termin buchen',
     eyebrow: 'IT- und Digitalberatung für Unternehmer in DACH',
     heroA: 'Mach dein Ding.', heroB: 'Den Rest übernehmen wir.',
@@ -300,8 +301,8 @@ var L = {
     partEyebrow: 'Partner', partTitle: 'Mit wem wir arbeiten', partPillar: '4. Säule: Menschen und Wandel', partRole: 'Coaching & Change Management, Berlin', partText: 'Workshops und Teambuilding. Hilft Ihrem Team, neue Tools und Prozesse leicht anzunehmen.', partLink: 'Instagram und Website',
     fin: {"toggle": "So finanzieren Sie Ihr Projekt", "close": "Einklappen", "howTitle": "So funktioniert es", "steps": ["IT-Check: Wir legen die Maßnahmen fest und erstellen einen Plan mit Budget.", "KfW-Digitalisierungs-Check: kostenloser Online-Check (für Stufe 1 erforderlich).", "Antrag über Ihre Hausbank vor Projektbeginn: Wir liefern Projektbeschreibung, Kostenplan und Phasen.", "Umsetzung nach Kreditzusage."], "stagesTitle": "Was die KfW finanziert", "stages": [{"h": "Stufe 1", "b": "IT-Infrastruktur, Software, Basisschutz, Cloud, Schulungen. Förderkredit."}, {"h": "Stufe 2", "b": "IT-Sicherheit: ISO 27001, Sicherheitskonzept, Schulungen. Kredit plus Zuschuss."}, {"h": "Stufe 3", "b": "KI- und Big-Data-Projekte mit Unternehmensdaten. Kredit plus Zuschuss."}], "who": "Für wen: kleine und mittlere Unternehmen in Deutschland, auch Einzelunternehmen und Freiberufler. Kein Mindestalter des Unternehmens.", "impTitle": "Wichtig", "imp": ["Den Umsetzungsvertrag erst nach Antragstellung unterschreiben, sonst ist keine Förderung möglich.", "Die Entscheidung treffen Bank und KfW. Wir garantieren keine Zusage.", "Förderbedingungen ändern sich, aktuelle Infos bei der KfW."], "kfw": "KfW-Konditionen"},
     facts: [['1 Gespräch', 'zum Kennenlernen und Klären der Ziele'], ['2 Wochen', 'für Audit und Bericht'], ['3 Experten', 'Prozesse, Technologie, Menschen']],
-    painsEyebrow: 'Kommt Ihnen das bekannt vor?', painsTitle: 'Sechs Augen sehen mehr als zwei',
-    pains: [['Daten verteilt auf viele Systeme', 'CRM, Tabellen und Messenger sind nicht verbunden: Es fehlt der Gesamtüberblick, Daten werden von Hand übertragen.'], ['Gesetze ändern sich schneller, als man folgen kann', 'E-Rechnung, DSGVO, NIS2, EU AI Act: Die Anforderungen wachsen, die Fristen laufen, und unklar bleibt, was davon Sie betrifft.'], ['Eine IT-Fachkraft kann nicht alles wissen', 'Infrastruktur, Sicherheit, Automatisierung, KI, Daten, Website: Das sind verschiedene Berufe. Eine Person allein deckt nicht alles ab, und bei Urlaub oder Kündigung geht das Wissen mit.'], ['Das Team nutzt die neuen Tools nicht', 'Das CRM ist gekauft, die Automatisierung eingerichtet, und trotzdem wird weiter in Excel und Messengern gearbeitet. Ohne Schulung und Begleitung bleibt die Ersparnis auf dem Papier.']],
+    painsEyebrow: 'Kommt Ihnen das bekannt vor?', painsTitle: 'Was Ihr Wachstum bremst',
+    pains: [['Daten verteilt auf viele Systeme', 'CRM, Tabellen und Messenger sind nicht verbunden: Es fehlt der Gesamtüberblick, Daten werden von Hand übertragen.'], ['Gesetze ändern sich schneller, als man folgen kann', 'E-Rechnung, DSGVO, NIS2, EU AI Act: Die Anforderungen wachsen, die Fristen laufen, und unklar bleibt, was davon Sie betrifft.'], ['Sechs Augen sehen mehr als zwei', 'Eine IT-Fachkraft kann nicht alles wissen. Infrastruktur, Sicherheit, Automatisierung, KI, Daten, Website: Das sind verschiedene Berufe. Eine Person allein deckt nicht alles ab, und bei Urlaub oder Kündigung geht das Wissen mit.'], ['Das Team nutzt die neuen Tools nicht', 'Das CRM ist gekauft, die Automatisierung eingerichtet, und trotzdem wird weiter in Excel und Messengern gearbeitet. Ohne Schulung und Begleitung bleibt die Ersparnis auf dem Papier.']],
     checkEyebrow: 'Erster Schritt', checkTitle: 'IT-Check in 2 Wochen',
     checkSub: 'Festpreis und klares Ergebnis. Beauftragen Sie danach die Umsetzung, wird der IT-Check angerechnet.',
     inclTitle: 'Was wir prüfen', incl: ['Ihren Stack und alle Abos', 'Sicherheit und DSGVO (Basis)', '2–3 zentrale Prozesse und wo KI hilft', 'Website und Customer Journey (UX)'],
@@ -310,7 +311,7 @@ var L = {
     svcEyebrow: 'Wie es weitergeht', svcTitle: 'Vom Audit bis zur laufenden Betreuung',
     svcs: [['Kennenlernen', 'Kostenloses Gespräch über Ihr Unternehmen und Ihre Ziele.'], ['IT-Check', 'Audit und Bericht mit Zahlen und Prioritäten.'], ['Umsetzung', 'Automatisierung, KI-Assistenten, CRM, Website-Redesign.'], ['Ausgelagerte IT-Abteilung', 'Support, Sicherheit und Updates im Abo.']],
     teamEyebrow: 'Team', teamTitle: 'Drei Experten, ein Ansprechpartner', teamPartner: 'Partner: Coaching, Workshops und Change Management, inklusive Phishing-Schulungen für Ihr Team.',
-    team: [['Business, Automatisierung & KI', '10+ Jahre internationaler B2B-Vertrieb. Prozessautomatisierung mit KI, AI & Data Governance, Umsetzung nach EU AI Act.', 'Prozesse'], ['Entwicklung, DevOps & Sicherheit', 'Individuelle Lösungen und Integrationen, Cloud-Infrastruktur, CI/CD. Risikoaudits, NIS2 und Datenschutz nach DSGVO.', 'Technologie'], ['UI/UX & Digitalmarketing', 'Websites, die Kunden bringen: klare Customer Journey, Conversion, Werbung in Social Media und Suche.', 'Menschen']],
+    team: [['Business, Automatisierung & KI', '10+ Jahre internationaler B2B-Vertrieb. Prozessautomatisierung mit KI, AI & Data Governance, Umsetzung nach EU AI Act.', 'Prozesse'], ['Entwicklung, DevOps & Sicherheit', 'Individuelle Lösungen und Integrationen, Cloud-Infrastruktur, CI/CD. Risikoaudits, NIS2 und Datenschutz nach DSGVO.', 'Technologie'], ['UI/UX & Digitalmarketing', 'Websites, die Kunden bringen: klare Customer Journey, Conversion, Werbung in Social Media und Suche.', 'Menschen'], ['Coaching & Change Management', 'Partnerin von Kosmo Team, Berlin. Workshops, Teambuilding und Coaching, damit Ihr Team neue Tools und Prozesse gern annimmt.', 'Menschen & Wandel']],
     ctTitle: 'Erzählen Sie uns von Ihrem Unternehmen', ctSub: 'Ein 30-minütiges Erstgespräch, unverbindlich. Wir antworten innerhalb eines Werktags.',
     fName: 'Name', fCompany: 'Unternehmen', fMsg: 'Was bremst Sie gerade am meisten?', fSend: 'Senden', fNote: 'Mit „Senden“ stimmen Sie unserer Datenschutzerklärung zu.'
   }
@@ -443,10 +444,13 @@ function render(lang) {
   var fq = document.getElementById('faq-list'); fq.innerHTML = '';
   t.faq.forEach(function (x) { var d = el('details', 'card'); var sm = el('summary', null, x[0]); sm.style.cssText = 'cursor:pointer;font-weight:600;font-size:17px'; d.appendChild(sm); d.appendChild(el('p', null, x[1])); fq.appendChild(d); });
   document.getElementById('faq-ld').textContent = JSON.stringify({'@context': 'https://schema.org', '@type': 'FAQPage', inLanguage: lang, mainEntity: t.faq.map(function (x) { return {'@type': 'Question', name: x[0], acceptedAnswer: {'@type': 'Answer', text: x[1]}}; })});
+  var mt = document.getElementById('meth-list'); mt.innerHTML = '';
+  t.meth.forEach(function (x) { var c = el('div', 'card'); c.style.background = 'var(--bg)'; c.appendChild(el('h3', null, x[0])); c.appendChild(el('p', null, x[1])); var a = el('a', null, x[3]); a.href = x[2]; a.style.fontSize = '15px'; c.appendChild(a); mt.appendChild(c); });
   renderQuiz(lang);
   renderFin(lang);
   try { localStorage.setItem('lang', lang); } catch (e) {}
 }
+document.getElementById('hero-quiz').addEventListener('click', function () { var b = document.getElementById('qz-body'); if (b && b.style.display === 'none') { var st = document.getElementById('qz-start'); if (st) st.click(); } });
 document.querySelectorAll('[data-lang]').forEach(function (b) { b.addEventListener('click', function () { render(b.getAttribute('data-lang')); }); });
 var start = 'ru'; try { start = localStorage.getItem('lang') || 'ru'; } catch (e) {}
 render(L[start] ? start : 'ru');
