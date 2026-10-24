@@ -139,12 +139,11 @@ footer a{color:var(--muted)}
 
 <section id="quiz" style="display:none"><div class="wrap" style="display:flex;flex-direction:column;gap:32px">
   <div style="display:none;flex-direction:column;gap:8px"><span class="eyebrow c" id="qz-eyebrow"></span><h2 id="qz-title"></h2><p class="muted" style="margin:0;max-width:640px" id="qz-sub"></p></div>
-  <div><button class="btn" type="button" id="qz-start"></button></div>
   <div id="qz-body" style="display:none;flex-direction:column;gap:32px">
   <div class="qlist" id="qz-list"></div>
   <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between">
     <span class="muted" id="qz-progress" aria-live="polite"></span>
-    <button class="btn" type="button" id="qz-show"></button>
+    <div style="display:flex;flex-wrap:wrap;gap:12px"><button class="btn" type="button" id="qz-start"></button><button class="btn" type="button" id="qz-show"></button></div>
   </div>
   <div class="qres" id="qz-res" hidden aria-live="polite"></div>
   </div>
