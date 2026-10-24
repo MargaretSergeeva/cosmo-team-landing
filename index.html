@@ -122,8 +122,8 @@ footer a{color:var(--muted)}
   </div>
 </div></section>
 
-<section id="quiz"><div class="wrap" style="display:flex;flex-direction:column;gap:32px">
-  <div style="display:flex;flex-direction:column;gap:8px"><span class="eyebrow c" id="qz-eyebrow"></span><h2 id="qz-title"></h2><p class="muted" style="margin:0;max-width:640px" id="qz-sub"></p></div>
+<section id="quiz" style="display:none"><div class="wrap" style="display:flex;flex-direction:column;gap:32px">
+  <div style="display:none;flex-direction:column;gap:8px"><span class="eyebrow c" id="qz-eyebrow"></span><h2 id="qz-title"></h2><p class="muted" style="margin:0;max-width:640px" id="qz-sub"></p></div>
   <div><button class="btn" type="button" id="qz-start"></button></div>
   <div id="qz-body" style="display:none;flex-direction:column;gap:32px">
   <div class="qlist" id="qz-list"></div>
@@ -145,6 +145,15 @@ footer a{color:var(--muted)}
   <div class="grid" id="svcs"></div>
 </div></section>
 
+<section id="results" style="border-top:1px solid var(--line)"><div class="wrap" style="display:flex;flex-direction:column;gap:40px">
+  <div style="display:flex;flex-direction:column;gap:8px"><span class="eyebrow c" data-k="outEyebrow"></span><h2 data-k="outTitle"></h2><p class="muted" style="margin:0;max-width:640px" data-k="outSub"></p></div>
+  <div class="grid" id="out-list"></div>
+  <div style="display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;justify-content:space-between;border:1px solid var(--glow);border-radius:12px;padding:24px 28px">
+    <p style="margin:0;flex:1 1 360px;min-width:0;font-size:18px;line-height:28px" data-k="portalText"></p>
+    <a class="btn ghost" href="portal-preview/" target="_blank" rel="noopener" style="white-space:nowrap" data-k="portalLink"></a>
+  </div>
+</div></section>
+
 <section id="check"><div class="wrap check">
   <div class="l">
     <span class="eyebrow c" data-k="checkEyebrow"></span>
@@ -155,7 +164,6 @@ footer a{color:var(--muted)}
       <div style="display:flex;flex-direction:column;gap:12px"><h3 style="margin:0;font-size:17px" data-k="resTitle"></h3><div id="res" style="display:flex;flex-direction:column;gap:12px"></div></div>
     </div>
     <a href="beispielbericht/" target="_blank" rel="noopener" style="font-size:15px" data-k="sampleLink"></a>
-    <a href="portal-preview/" target="_blank" rel="noopener" style="font-size:15px" data-k="portalLink"></a>
   </div>
   <div class="r">
     <span class="eyebrow" style="color:var(--gold)" data-k="priceLabel"></span>
@@ -184,10 +192,6 @@ footer a{color:var(--muted)}
   <div class="grid" id="meth-list"></div>
 </div></section>
 
-<section id="results" style="border-top:1px solid var(--line)"><div class="wrap" style="display:flex;flex-direction:column;gap:40px">
-  <div style="display:flex;flex-direction:column;gap:8px"><span class="eyebrow c" data-k="outEyebrow"></span><h2 data-k="outTitle"></h2><p class="muted" style="margin:0;max-width:640px" data-k="outSub"></p></div>
-  <div class="grid" id="out-list"></div>
-</div></section>
 
 <section id="faq" style="border-top:1px solid var(--line)"><div class="wrap" style="display:flex;flex-direction:column;gap:32px">
   <div style="display:flex;flex-direction:column;gap:8px"><span class="eyebrow" data-k="faqEyebrow"></span><h2 data-k="faqTitle"></h2></div>
@@ -225,7 +229,7 @@ var L = {
     faqEyebrow: 'FAQ', faqTitle: 'Частые вопросы',
     faq: [['Как вы измеряете, что проект сработал?', 'До старта мы вместе с вами выбираем 1–3 показателя, например часы на рутину в неделю или время ответа на заявку, и фиксируем исходные значения. После запуска измеряем их снова и показываем результат «было / стало» в вашем личном кабинете.'], ['Что будет после внедрения?', 'По желанию проводим ревью через 30 и 90 дней: проверяем показатели, смотрим, что изменилось в бизнесе, и предлагаем следующие шаги. Ревью оплачивается отдельно. Также можем разработать стратегию change management, провести воркшопы и коучинг для команды, чтобы новые инструменты действительно прижились.'], ['По какой методике вы ведёте AI-проекты?', 'Мы опираемся на CPMAI — методику PMI для управления проектами с ИИ. Она идёт в шесть итеративных шагов: понимание бизнес-задачи, понимание данных, подготовка данных, разработка модели, оценка модели и запуск в работу. Главный вопрос в начале: нужен ли здесь ИИ вообще или хватит обычной автоматизации. Для AI-проектов мы используем CPMAI, а её принципы переносим на все проекты цифровизации — CRM, автоматизацию, работу с данными.']],
     draft: 'Черновик — макет, не коммерческое предложение',
-    portalLink: 'Посмотреть клиентский портал (демо) →', sampleLink: 'Посмотреть пример отчёта (вымышленная компания, на английском) →', fundMore: 'Узнать больше',
+    portalText: 'Mission Control: отчёты онлайн, статус проекта и ваши запросы — в одном месте.', portalLink: 'Посмотреть портал (демо) →', sampleLink: 'Посмотреть пример отчёта (вымышленная компания, на английском) →', fundMore: 'Узнать больше',
     methEyebrow: 'Как мы работаем', methTitle: 'Наши методики', methSub: 'Работаем по международным стандартам и методикам, в том числе Project Management Institute (PMI).',
     meth: [['M.O.R.E.: польза, а не галочки', 'Ведём проект к результату для бизнеса: цели до старта, показатели после запуска, регулярная сверка с вашими задачами.', 'insights/more-projektnutzen/', 'Статья о M.O.R.E. (DE) →'], ['CPMAI: AI-проекты, которые работают', 'Шесть итеративных шагов от бизнес-задачи до работы в повседневности. Для AI-проектов — методика, для остальных — её принципы.', 'insights/cpmai/', 'Статья о CPMAI (DE) →']],
     navCheck: 'IT-Check', navServices: 'Услуги', navTeam: 'Команда', navInsights: 'Знания', navContact: 'Контакты', navCta: 'Записаться на звонок',
@@ -258,7 +262,7 @@ var L = {
     faqEyebrow: 'FAQ', faqTitle: 'Frequently asked questions',
     faq: [['How do you measure whether the project worked?', 'Before we start, we pick 1–3 numbers with you, such as hours spent on routine work per week or time to reply to a lead, and record the starting values. After launch we measure them again and show the before/after in your client portal.'], ['What happens after implementation?', 'If you want, we run reviews after 30 and 90 days: we check the numbers, look at what changed in your business and suggest next steps. Reviews are billed separately. We can also build a change management strategy and run workshops and coaching for your team, so the new tools actually stick.'], ['Which method do you use for AI projects?', 'We follow CPMAI, the Project Management Institute (PMI) methodology for managing AI projects. It runs in six iterative phases: business understanding, data understanding, data preparation, model development, model evaluation and model operationalization. The first question is always whether you need AI at all or whether simple automation is enough. We use CPMAI for AI projects and apply its principles to all digitalisation projects, such as CRM, automation and data work.']],
     draft: 'Draft — design mock-up, not a commercial offer',
-    portalLink: 'Preview the client portal (demo) →', sampleLink: 'See a sample report (fictional company) →', fundMore: 'Learn more',
+    portalText: 'Mission Control: live reports, project status and your requests in one place.', portalLink: 'See the portal (demo) →', sampleLink: 'See a sample report (fictional company) →', fundMore: 'Learn more',
     methEyebrow: 'How we work', methTitle: 'Our methods', methSub: 'We work with international standards and methods, including those of the Project Management Institute (PMI).',
     meth: [['M.O.R.E.: value, not checkboxes', 'We steer projects toward business results: goals before we start, numbers after launch, regular check-ins against your goals.', 'insights/more-projektnutzen/', 'Article on M.O.R.E. (DE) →'], ['CPMAI: AI projects that work', 'Six iterative steps from business problem to day-to-day use. The method for AI projects, its principles for everything else.', 'insights/cpmai/', 'Article on CPMAI (DE) →']],
     navCheck: 'IT-Check', navServices: 'Services', navTeam: 'Team', navInsights: 'Insights', navContact: 'Contact', navCta: 'Book a call',
@@ -291,7 +295,7 @@ var L = {
     faqEyebrow: 'FAQ', faqTitle: 'Häufige Fragen',
     faq: [['Wie messen Sie, ob das Projekt funktioniert hat?', 'Vor dem Start wählen wir mit Ihnen 1–3 Kennzahlen, etwa Stunden pro Woche für Routinearbeit oder die Antwortzeit auf Anfragen, und halten die Ausgangswerte fest. Nach dem Start messen wir erneut und zeigen den Vorher-Nachher-Vergleich in Ihrem Kundenportal.'], ['Was passiert nach der Umsetzung?', 'Auf Wunsch führen wir Reviews nach 30 und 90 Tagen durch: Wir prüfen die Kennzahlen, schauen, was sich in Ihrem Unternehmen verändert hat, und schlagen nächste Schritte vor. Reviews werden separat berechnet. Außerdem entwickeln wir auf Wunsch eine Change-Management-Strategie und bieten Workshops und Coaching für Ihr Team an, damit die neuen Tools wirklich im Alltag ankommen.'], ['Nach welcher Methode setzen Sie KI-Projekte um?', 'Wir arbeiten nach CPMAI, der Methode des Project Management Institute (PMI) für KI-Projekte. Sie läuft in sechs iterativen Phasen: Geschäftsverständnis, Datenverständnis, Datenaufbereitung, Modellentwicklung, Modellbewertung und Inbetriebnahme. Die erste Frage ist immer, ob Sie überhaupt KI brauchen oder ob einfache Automatisierung reicht. Für KI-Projekte nutzen wir CPMAI. Die Grundsätze übertragen wir auf alle Digitalisierungsprojekte, etwa CRM, Automatisierung und Datenprojekte.']],
     draft: 'Entwurf — Design-Mock-up, kein Angebot',
-    portalLink: 'Kundenportal ansehen (Demo) →', sampleLink: 'Beispielbericht ansehen (fiktives Unternehmen, auf Englisch) →', fundMore: 'Mehr erfahren',
+    portalText: 'Mission Control: Berichte online, Projektstatus und Ihre Anfragen an einem Ort.', portalLink: 'Portal ansehen (Demo) →', sampleLink: 'Beispielbericht ansehen (fiktives Unternehmen, auf Englisch) →', fundMore: 'Mehr erfahren',
     methEyebrow: 'So arbeiten wir', methTitle: 'Unsere Methoden', methSub: 'Wir arbeiten nach internationalen Standards und Methoden, unter anderem des Project Management Institute (PMI).',
     meth: [['M.O.R.E.: Nutzen statt Häkchen', 'Wir führen Projekte zum Geschäftsergebnis: Ziele vor dem Start, Kennzahlen nach dem Start, regelmäßiger Abgleich mit Ihren Zielen.', 'insights/more-projektnutzen/', 'Artikel zu M.O.R.E. →'], ['CPMAI: KI-Projekte, die funktionieren', 'Sechs iterative Schritte vom Geschäftsproblem bis zum Alltag. Für KI-Projekte die Methode, für alle anderen ihre Grundsätze.', 'insights/cpmai/', 'Artikel zu CPMAI →']],
     navCheck: 'IT-Check', navServices: 'Leistungen', navTeam: 'Team', navInsights: 'Wissen', navContact: 'Kontakt', navCta: 'Termin buchen',
@@ -369,6 +373,7 @@ function renderQuiz(lang) {
   document.getElementById('qz-sub').textContent = q.sub;
   var st = document.getElementById('qz-start'); st.textContent = qOpen ? QCLOSE[lang] : QSTART[lang]; st.onclick = toggleQuiz; st.className = qOpen ? 'btn ghost' : 'btn'; st.setAttribute('aria-expanded', qOpen); st.setAttribute('aria-controls', 'qz-body');
   document.getElementById('qz-body').style.display = qOpen ? 'flex' : 'none';
+  document.getElementById('quiz').style.display = qOpen ? '' : 'none';
   document.getElementById('hero-quiz').onclick = openQuiz;
   var list = document.getElementById('qz-list'); list.innerHTML = '';
   q.qs.forEach(function (text, i) {
