@@ -8,10 +8,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0B0E1A;--panel:#141A2E;--line:#232A45;--text:#EDEFF7;--muted:#9AA3C0;--nebula:#8B70FF;--nebula-soft:#2A2259;--glow:#4FD1E8;--nova:#FFB547}
+:root{--bg:#0B1026;--panel:#141B38;--slab:#232C5A;--line:#2A3358;--text:#F2EEE3;--muted:#A9AFC7;--gold:#D4A84B;--gold-soft:#F0D9A0;--glow:#4FD1E8;--earth-deep:#16506A;--nebula:var(--gold);--nebula-soft:var(--slab);--nova:var(--gold)}
 *{box-sizing:border-box}
 body{margin:0;background-color:var(--bg);background-image:radial-gradient(1px 1px at 20px 30px, rgba(237,239,247,0.6), transparent), radial-gradient(1px 1px at 120px 80px, rgba(237,239,247,0.4), transparent), radial-gradient(1.5px 1.5px at 260px 160px, rgba(237,239,247,0.5), transparent), radial-gradient(1px 1px at 340px 40px, rgba(237,239,247,0.35), transparent), radial-gradient(1px 1px at 80px 220px, rgba(237,239,247,0.45), transparent), radial-gradient(1.5px 1.5px at 190px 300px, rgba(237,239,247,0.4), transparent), radial-gradient(1px 1px at 310px 260px, rgba(237,239,247,0.5), transparent), radial-gradient(1px 1px at 380px 350px, rgba(237,239,247,0.3), transparent), radial-gradient(1px 1px at 150px 370px, rgba(237,239,247,0.4), transparent), radial-gradient(1px 1px at 40px 330px, rgba(237,239,247,0.3), transparent);background-size:400px 400px;color:var(--text);font:16px/24px Inter,system-ui,sans-serif}
-a{color:var(--nebula)}a:hover{color:#B3A3FF}
+a{color:var(--nebula)}a:hover{color:var(--gold-soft)}
 h1,h2,h3,.disp{font-family:"Space Grotesk",sans-serif}
 .wrap{max-width:1200px;margin:0 auto;padding:96px 24px}
 .eyebrow{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:12px;line-height:16px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
@@ -22,10 +22,10 @@ h2{margin:0;font-weight:600;font-size:36px;line-height:42px}
 .card{border:1px solid var(--line);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:12px}
 .card h3{margin:0;font-weight:600;font-size:19px;line-height:26px}
 .card p{margin:0;font-size:15px;line-height:22px;color:var(--muted)}
-.band{background:rgba(20,26,46,.85);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.band{background:rgba(20,27,56,.85);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .band .card{background:var(--bg)}
 .btn{background:var(--nebula);color:var(--bg);text-decoration:none;font-weight:600;padding:14px 24px;border-radius:12px;min-height:48px;display:inline-flex;align-items:center;justify-content:center;border:0;font-size:16px;cursor:pointer;font-family:inherit}
-.btn:hover{color:var(--bg);background:#9C86FF}
+.btn:hover{color:var(--bg);background:var(--gold-soft)}
 .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--text);font-weight:500}
 .head{border-bottom:1px solid var(--line)}
 .head .in{max-width:1200px;margin:0 auto;padding:16px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}
@@ -53,8 +53,8 @@ nav a{color:var(--muted);text-decoration:none}nav a:hover{color:var(--text)}
 .check .l h2{font-weight:700;font-size:clamp(32px,4.5vw,48px);line-height:1.1}
 .check .r{flex:1 1 320px;min-width:0;background:var(--nebula-soft);border:1px solid var(--nebula);border-radius:12px;padding:32px;display:flex;flex-direction:column;gap:16px;justify-content:center}
 .li{display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:24px}
-.num{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:14px;color:var(--nebula)}
-.ava{width:64px;height:64px;border-radius:999px;background:var(--nebula-soft);border:1px solid var(--nebula)}
+.num{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:14px;color:var(--glow)}
+.ava{width:64px;height:64px;border-radius:999px;background:var(--earth-deep);border:1px solid var(--glow)}
 form{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;flex:999 1 480px;min-width:0}
 form .f{display:flex;flex-direction:column;gap:6px}
 form .full{grid-column:1/-1}
@@ -68,7 +68,7 @@ footer a{color:var(--muted)}
 .q{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;padding:20px 24px;border-top:1px solid var(--line)}
 .q:first-child{border-top:0}
 .q p{margin:0;flex:999 1 420px;min-width:0;font-size:16px;line-height:24px}
-.q .n{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:13px;color:var(--nebula);margin-right:10px}
+.q .n{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:13px;color:var(--glow);margin-right:10px}
 .opts{display:flex;gap:8px;flex:1 0 auto}
 .opts button{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--text);font:inherit;font-size:14px;cursor:pointer}
 .opts button[aria-pressed=true]{background:var(--nebula);border-color:var(--nebula);color:var(--bg);font-weight:600}
@@ -80,7 +80,7 @@ footer a{color:var(--muted)}
 <div class="draft" data-k="draft"></div>
 
 <header class="head"><div class="in">
-  <a class="logo" href="#top" aria-label="Kosmo Team" style="flex-direction:row;align-items:center;gap:12px"><svg width="44" height="44" viewBox="0 0 40 40" aria-hidden="true" style="flex-shrink: 0;"><ellipse cx="20" cy="20" rx="17" ry="7" fill="none" stroke="#8B70FF" stroke-width="1.5" transform="rotate(-25 20 20)"></ellipse><circle cx="20" cy="20" r="7" fill="#FFB547"></circle><circle cx="29.9" cy="10.4" r="3.2" fill="#4FD1E8"></circle></svg><span style="display:flex;flex-direction:column;gap:2px"><b><span style="color:#8B70FF">Kosmo</span> Team</b><span class="eyebrow" style="font-size:11px">IT &amp; Digital Consulting</span></span></a>
+  <a class="logo" href="#top" aria-label="Kosmo Team" style="flex-direction:row;align-items:center;gap:12px"><svg width="44" height="44" viewBox="0 0 40 40" aria-hidden="true" style="flex-shrink: 0;"><ellipse cx="20" cy="20" rx="17" ry="7" fill="none" stroke="#4FD1E8" stroke-width="1.5" transform="rotate(-25 20 20)"></ellipse><circle cx="20" cy="20" r="7" fill="#D4A84B"></circle><circle cx="29.9" cy="10.4" r="3.2" fill="#4FD1E8"></circle></svg><span style="display:flex;flex-direction:column;gap:2px"><b><span style="color:var(--gold)">Kosmo</span> Team</b><span class="eyebrow" style="font-size:11px">IT &amp; Digital Consulting</span></span></a>
   <nav aria-label="Main">
     <a href="#check" data-k="navCheck"></a><a href="#services" data-k="navServices"></a><a href="#team" data-k="navTeam"></a><a href="#contact" data-k="navContact"></a>
   </nav>
@@ -110,7 +110,7 @@ footer a{color:var(--muted)}
     <h1><span style="color:inherit" data-k="heroA"></span> <span data-k="heroB"></span></h1>
     <p class="sub" data-k="heroSub"></p>
     <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding-top:8px;max-width:560px">
-      <a class="btn" href="#check" data-k="heroCta1" style="text-align:center;padding:14px 12px"></a><a class="btn ghost" href="#quiz" id="hero-quiz" data-k="heroCta2" style="text-align:center;padding:14px 12px;background:#4FD1E8;border-color:#4FD1E8;color:#0B0E1A;font-weight:600"></a>
+      <a class="btn" href="#check" data-k="heroCta1" style="text-align:center;padding:14px 12px"></a><a class="btn ghost" href="#quiz" id="hero-quiz" data-k="heroCta2" style="text-align:center;padding:14px 12px;border-color:var(--glow);color:var(--glow);font-weight:600"></a>
     </div>
   </div>
 </section>
@@ -145,9 +145,9 @@ footer a{color:var(--muted)}
     </div>
   </div>
   <div class="r">
-    <span class="eyebrow" style="color:#C9BEFF" data-k="priceLabel"></span>
+    <span class="eyebrow" style="color:var(--gold)" data-k="priceLabel"></span>
     <span class="disp" style="font-weight:700;font-size:48px;line-height:52px">[PRICE] €</span>
-    <span style="font-size:15px;line-height:22px;color:#D5CEF7" data-k="priceNote"></span>
+    <span style="font-size:15px;line-height:22px;color:var(--text)" data-k="priceNote"></span>
     <a class="btn" href="#contact" style="margin-top:8px" data-k="heroCta1"></a>
   </div>
 </div></section>
@@ -157,16 +157,31 @@ footer a{color:var(--muted)}
   <div class="grid" id="svcs"></div>
 </div></section>
 
+<section aria-labelledby="fund-title"><div class="wrap" style="padding:72px 24px">
+  <div style="border:1px solid #D4A84B;background:rgba(212,168,75,.08);border-radius:12px;padding:32px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between">
+    <div style="flex:999 1 480px;min-width:0;display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap"><span style="background:#D4A84B;color:#0B1026;font-weight:700;font-size:12px;letter-spacing:.08em;padding:4px 10px;border-radius:999px">KfW</span><span class="eyebrow" style="color:#D4A84B" data-k="fundEyebrow"></span></div>
+      <h2 id="fund-title" style="font-weight:700;font-size:clamp(26px,3.5vw,36px);line-height:1.15" data-k="fundTitle"></h2>
+      <p style="margin:0;max-width:680px;font-size:17px;line-height:26px;color:#D9DDEA" data-k="fundText"></p>
+    </div>
+    <div style="flex:1 0 auto;display:flex;flex-direction:column;gap:10px">
+      <a class="btn" href="#contact" style="background:#D4A84B;color:#0B1026" data-k="fundCta"></a>
+      <button class="btn ghost" type="button" id="fin-toggle" aria-expanded="false" aria-controls="fin-panel" style="border-color:#D4A84B;color:#D4A84B"></button>
+    </div>
+    <div id="fin-panel" style="display:none;flex-basis:100%;border-top:1px solid rgba(255,181,71,.35);padding-top:24px;flex-direction:column;gap:24px"></div>
+  </div>
+</div></section>
+
 <section id="team" class="band"><div class="wrap" style="display:flex;flex-direction:column;gap:40px">
   <div style="display:flex;flex-direction:column;gap:8px"><span class="eyebrow" data-k="teamEyebrow"></span><h2 data-k="teamTitle"></h2></div>
   <div class="grid" id="team-list"></div>
-  <p class="muted" data-k="teamPartner"></p>
 </div></section>
 
 <section id="partners" style="border-top:1px solid var(--line)"><div class="wrap" style="display:flex;flex-direction:column;gap:32px;padding:80px 24px">
   <div style="display:flex;flex-direction:column;gap:8px"><span class="eyebrow" data-k="partEyebrow"></span><h2 data-k="partTitle"></h2></div>
   <div class="grid">
     <div class="card" style="background:var(--panel)">
+      <span class="eyebrow" data-k="partPillar"></span>
       <div style="display:flex;gap:16px;align-items:center">
         <div class="ava" aria-hidden="true"></div>
         <div style="display:flex;flex-direction:column;gap:2px"><h3>[NAME]</h3><span class="eyebrow c" data-k="partRole"></span></div>
@@ -194,21 +209,6 @@ footer a{color:var(--muted)}
   </form>
 </div></section>
 
-<section aria-labelledby="fund-title"><div class="wrap" style="padding:72px 24px">
-  <div style="border:1px solid #FFB547;background:rgba(255,181,71,.08);border-radius:12px;padding:32px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between">
-    <div style="flex:999 1 480px;min-width:0;display:flex;flex-direction:column;gap:12px">
-      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap"><span style="background:#FFB547;color:#0B0E1A;font-weight:700;font-size:12px;letter-spacing:.08em;padding:4px 10px;border-radius:999px">KfW</span><span class="eyebrow" style="color:#FFB547" data-k="fundEyebrow"></span></div>
-      <h2 id="fund-title" style="font-weight:700;font-size:clamp(26px,3.5vw,36px);line-height:1.15" data-k="fundTitle"></h2>
-      <p style="margin:0;max-width:680px;font-size:17px;line-height:26px;color:#D9DDEA" data-k="fundText"></p>
-    </div>
-    <div style="flex:1 0 auto;display:flex;flex-direction:column;gap:10px">
-      <a class="btn" href="#contact" style="background:#FFB547;color:#0B0E1A" data-k="fundCta"></a>
-      <button class="btn ghost" type="button" id="fin-toggle" aria-expanded="false" aria-controls="fin-panel" style="border-color:#FFB547;color:#FFB547"></button>
-    </div>
-    <div id="fin-panel" style="display:none;flex-basis:100%;border-top:1px solid rgba(255,181,71,.35);padding-top:24px;flex-direction:column;gap:24px"></div>
-  </div>
-</div></section>
-
 <footer style="border-top:1px solid var(--line)"><div class="in">
   <span>© 2026 Kosmo Team · Berlin</span>
   <div style="display:flex;gap:24px"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div>
@@ -224,7 +224,7 @@ var L = {
     heroSub: 'Проверяем ваш стек, находим, где вы переплачиваете и рискуете штрафами, и внедряем решения под ваш бизнес, включая ИИ. На русском, английском и немецком.',
     heroCta1: 'Заказать IT-Check', heroCta2: 'Бесплатный тест за 3 минуты',
     fundEyebrow: 'Господдержка', fundTitle: 'Цифровизация с господдержкой', fundText: 'Планируем и внедряем проект так, чтобы его можно было профинансировать льготным кредитом KfW, а для проектов по IT-безопасности и ИИ — с грантом.', fundCta: 'Обсудить проект',
-    partEyebrow: 'Партнёры', partTitle: 'С кем мы работаем', partRole: 'Лайф-коуч, Берлин', partText: 'Платная онлайн-платформа, оплата и email-воронка с нуля.', partLink: 'Instagram и сайт',
+    partEyebrow: 'Партнёры', partTitle: 'С кем мы работаем', partPillar: '4-е направление: люди и изменения', partRole: 'Коучинг и change management, Берлин', partText: 'Воркшопы и тимбилдинг. Помогает команде легко принять новые инструменты и процессы.', partLink: 'Instagram и сайт',
     fin: {"toggle": "Как профинансировать проект", "close": "Свернуть", "howTitle": "Как это работает", "steps": ["IT-Check: определяем нужные меры и составляем план с бюджетом.", "KfW Digitalisierungs-Check: бесплатная онлайн-проверка (нужна для этапа 1).", "Заявка через ваш банк до начала проекта: мы готовим описание, смету и этапы.", "Внедрение после одобрения кредита."], "stagesTitle": "Что финансирует KfW", "stages": [{"h": "Этап 1", "b": "IT-инфраструктура, софт, базовая защита, облако, обучение. Льготный кредит."}, {"h": "Этап 2", "b": "IT-безопасность: ISO 27001, концепция безопасности, обучение. Кредит и грант."}, {"h": "Этап 3", "b": "Проекты ИИ и Big Data на данных компании. Кредит и грант."}], "who": "Кому подходит: малому и среднему бизнесу в Германии, включая ИП и фрилансеров. Требований к возрасту компании нет.", "impTitle": "Важно", "imp": ["Договор на внедрение подписывается только после подачи заявки, иначе финансирование невозможно.", "Решение принимают банк и KfW. Мы не гарантируем одобрение.", "Условия программы меняются, актуальные данные — на сайте KfW."], "kfw": "Условия KfW"},
     facts: [['1 звонок', 'знакомство и разбор целей'], ['2 недели', 'на аудит и отчёт'], ['3 эксперта', 'процессы, технологии, люди']],
     painsEyebrow: 'Знакомо?', painsTitle: 'Что мешает вашему бизнесу расти',
@@ -249,7 +249,7 @@ var L = {
     heroSub: 'We review your stack, find where you overpay or risk fines, and build solutions that fit your business, including AI. In English, German and Russian.',
     heroCta1: 'Order an IT-Check', heroCta2: 'Free 3-min test',
     fundEyebrow: 'Public funding', fundTitle: 'Funded digitalisation project', fundText: 'We plan and deliver your project so it can be financed with the KfW digitalisation loan, with a grant for IT security and AI projects.', fundCta: 'Discuss your project',
-    partEyebrow: 'Partners', partTitle: 'Who we work with', partRole: 'Life coach, Berlin', partText: 'Paid online platform, payments and email funnel built from scratch.', partLink: 'Instagram and website',
+    partEyebrow: 'Partners', partTitle: 'Who we work with', partPillar: '4th pillar: people and change', partRole: 'Coaching & change management, Berlin', partText: 'Workshops and team building. Helps your team adopt new tools and processes with ease.', partLink: 'Instagram and website',
     fin: {"toggle": "How to finance your project", "close": "Collapse", "howTitle": "How it works", "steps": ["IT-Check: we define the measures and draw up a plan with a budget.", "KfW Digitalisierungs-Check: a free online check (required for stage 1).", "Application through your bank before the project starts: we prepare the description, cost estimate and phases.", "Implementation once the loan is approved."], "stagesTitle": "What KfW finances", "stages": [{"h": "Stage 1", "b": "IT infrastructure, software, basic security, cloud, training. Low-interest loan."}, {"h": "Stage 2", "b": "IT security: ISO 27001, security concept, training. Loan plus grant."}, {"h": "Stage 3", "b": "AI and big data projects on company data. Loan plus grant."}], "who": "Who qualifies: small and medium-sized businesses in Germany, including sole traders and freelancers. No minimum company age.", "impTitle": "Important", "imp": ["Sign the implementation contract only after applying, otherwise funding is not possible.", "The bank and KfW decide. We cannot guarantee approval.", "Programme terms change; check KfW for current details."], "kfw": "KfW terms"},
     facts: [['1 call', 'to get to know your business and goals'], ['2 weeks', 'for audit and report'], ['3 experts', 'process, technology, people']],
     painsEyebrow: 'Sound familiar?', painsTitle: 'What holds your business back',
@@ -274,7 +274,7 @@ var L = {
     heroSub: 'Wir prüfen Ihren Stack, finden, wo Sie zu viel zahlen oder Bußgelder riskieren, und setzen passende Lösungen um, auch mit KI. Auf Deutsch, Englisch und Russisch.',
     heroCta1: 'IT-Check anfragen', heroCta2: 'Kostenloser 3-Minuten-Test',
     fundEyebrow: 'Förderung', fundTitle: 'Gefördertes Digitalisierungsprojekt', fundText: 'Wir planen und setzen Ihr Projekt so um, dass es über den KfW-Förderkredit Digitalisierung finanziert werden kann, bei IT-Sicherheits- und KI-Projekten mit Zuschuss.', fundCta: 'Projekt besprechen',
-    partEyebrow: 'Partner', partTitle: 'Mit wem wir arbeiten', partRole: 'Life-Coach, Berlin', partText: 'Bezahlte Online-Plattform, Zahlungen und E-Mail-Funnel von Grund auf.', partLink: 'Instagram und Website',
+    partEyebrow: 'Partner', partTitle: 'Mit wem wir arbeiten', partPillar: '4. Säule: Menschen und Wandel', partRole: 'Coaching & Change Management, Berlin', partText: 'Workshops und Teambuilding. Hilft Ihrem Team, neue Tools und Prozesse leicht anzunehmen.', partLink: 'Instagram und Website',
     fin: {"toggle": "So finanzieren Sie Ihr Projekt", "close": "Einklappen", "howTitle": "So funktioniert es", "steps": ["IT-Check: Wir legen die Maßnahmen fest und erstellen einen Plan mit Budget.", "KfW-Digitalisierungs-Check: kostenloser Online-Check (für Stufe 1 erforderlich).", "Antrag über Ihre Hausbank vor Projektbeginn: Wir liefern Projektbeschreibung, Kostenplan und Phasen.", "Umsetzung nach Kreditzusage."], "stagesTitle": "Was die KfW finanziert", "stages": [{"h": "Stufe 1", "b": "IT-Infrastruktur, Software, Basisschutz, Cloud, Schulungen. Förderkredit."}, {"h": "Stufe 2", "b": "IT-Sicherheit: ISO 27001, Sicherheitskonzept, Schulungen. Kredit plus Zuschuss."}, {"h": "Stufe 3", "b": "KI- und Big-Data-Projekte mit Unternehmensdaten. Kredit plus Zuschuss."}], "who": "Für wen: kleine und mittlere Unternehmen in Deutschland, auch Einzelunternehmen und Freiberufler. Kein Mindestalter des Unternehmens.", "impTitle": "Wichtig", "imp": ["Den Umsetzungsvertrag erst nach Antragstellung unterschreiben, sonst ist keine Förderung möglich.", "Die Entscheidung treffen Bank und KfW. Wir garantieren keine Zusage.", "Förderbedingungen ändern sich, aktuelle Infos bei der KfW."], "kfw": "KfW-Konditionen"},
     facts: [['1 Gespräch', 'zum Kennenlernen und Klären der Ziele'], ['2 Wochen', 'für Audit und Bericht'], ['3 Experten', 'Prozesse, Technologie, Menschen']],
     painsEyebrow: 'Kommt Ihnen das bekannt vor?', painsTitle: 'Was Ihr Wachstum bremst',
@@ -359,11 +359,11 @@ function renderQuiz(lang) {
   var top = el('div'); top.style.cssText = 'display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline';
   var sc = el('span', 'disp', String(r.score)); sc.style.cssText = 'font-weight:700;font-size:56px;line-height:60px;color:var(--text)'; top.appendChild(sc);
   top.appendChild(el('span', 'muted', q.points)); res.appendChild(top);
-  var h = el('h3', null, tr[0]); h.style.cssText = 'margin:0;font-size:28px;line-height:34px;color:#C9BEFF'; res.appendChild(h);
-  var d = el('p', null, tr[1]); d.style.cssText = 'margin:0;max-width:640px;color:#D5CEF7'; res.appendChild(d);
+  var h = el('h3', null, tr[0]); h.style.cssText = 'margin:0;font-size:28px;line-height:34px;color:var(--gold)'; res.appendChild(h);
+  var d = el('p', null, tr[1]); d.style.cssText = 'margin:0;max-width:640px;color:var(--text)'; res.appendChild(d);
   if (r.weak.length) {
     res.appendChild(el('span', 'eyebrow c', q.weak));
-    r.weak.forEach(function (c) { var li = el('div', 'li'); var s = el('span'); s.style.cssText = 'width:8px;height:8px;border-radius:999px;background:#FFB547;flex-shrink:0;margin-top:8px'; li.appendChild(s); li.appendChild(el('span', null, q.cats[c])); res.appendChild(li); });
+    r.weak.forEach(function (c) { var li = el('div', 'li'); var s = el('span'); s.style.cssText = 'width:8px;height:8px;border-radius:999px;background:#D4A84B;flex-shrink:0;margin-top:8px'; li.appendChild(s); li.appendChild(el('span', null, q.cats[c])); res.appendChild(li); });
   }
   var row2 = el('div'); row2.style.cssText = 'display:flex;flex-wrap:wrap;gap:12px;padding-top:8px';
   var a = el('a', 'btn', L[lang].heroCta1); a.href = '#check'; row2.appendChild(a);
@@ -378,7 +378,7 @@ function renderFin(lang) {
   b.onclick = function () { finOpen = !finOpen; renderFin(document.documentElement.lang); };
   p.style.display = finOpen ? 'flex' : 'none'; p.innerHTML = '';
   if (!finOpen) return;
-  function h(text) { var e = el('h3', null, text); e.style.cssText = 'margin:0;font-size:18px;line-height:24px;color:#FFB547'; return e; }
+  function h(text) { var e = el('h3', null, text); e.style.cssText = 'margin:0;font-size:18px;line-height:24px;color:#D4A84B'; return e; }
   function grid() { var g = el('div', 'grid'); return g; }
   var s1 = el('div'); s1.style.cssText = 'display:flex;flex-direction:column;gap:12px'; s1.appendChild(h(f.howTitle));
   var ol = el('ol'); ol.style.cssText = 'margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px';
@@ -390,14 +390,14 @@ function renderFin(lang) {
   p.appendChild(cards(f.stagesTitle, f.stages));
   var w = el('p', null, f.who); w.style.cssText = 'margin:0;color:#D9DDEA'; p.appendChild(w);
   var s4 = el('div'); s4.style.cssText = 'display:flex;flex-direction:column;gap:8px'; s4.appendChild(h(f.impTitle));
-  f.imp.forEach(function (x) { var li = el('div', 'li'); var d = el('span'); d.style.cssText = 'width:8px;height:8px;border-radius:999px;background:#FFB547;flex-shrink:0;margin-top:8px'; li.appendChild(d); li.appendChild(el('span', null, x)); s4.appendChild(li); });
+  f.imp.forEach(function (x) { var li = el('div', 'li'); var d = el('span'); d.style.cssText = 'width:8px;height:8px;border-radius:999px;background:#D4A84B;flex-shrink:0;margin-top:8px'; li.appendChild(d); li.appendChild(el('span', null, x)); s4.appendChild(li); });
   p.appendChild(s4);
   var lk = el('div'); lk.style.cssText = 'display:flex;flex-wrap:wrap;gap:24px';
-  [[f.kfw, 'https://www.kfw.de/inlandsfoerderung/Unternehmen/Innovation-und-Digitalisierung/Digitalisierung/']].forEach(function (x) { var a = el('a', null, x[0] + ' ↗'); a.href = x[1]; a.target = '_blank'; a.rel = 'noopener'; a.style.color = '#FFB547'; lk.appendChild(a); });
+  [[f.kfw, 'https://www.kfw.de/inlandsfoerderung/Unternehmen/Innovation-und-Digitalisierung/Digitalisierung/']].forEach(function (x) { var a = el('a', null, x[0] + ' ↗'); a.href = x[1]; a.target = '_blank'; a.rel = 'noopener'; a.style.color = '#D4A84B'; lk.appendChild(a); });
   p.appendChild(lk);
 }
 function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
-var CHECK = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B70FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;margin-top:3px"><path d="M20 6L9 17l-5-5"/></svg>';
+var CHECK = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4FD1E8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;margin-top:3px"><path d="M20 6L9 17l-5-5"/></svg>';
 function render(lang) {
   var t = L[lang];
   document.documentElement.lang = lang;
