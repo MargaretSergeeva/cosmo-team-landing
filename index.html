@@ -365,6 +365,8 @@ function quizResult(ans) {
 
 var QSTART = { ru: 'Пройти проверку', en: 'Start the check', de: 'Check starten' };
 var QCLOSE = { ru: 'Свернуть тест', en: 'Close the test', de: 'Test schließen' };
+var QMAIL = { ru: 'Получить результаты на email', en: 'Get results by email', de: 'Ergebnis per E-Mail erhalten' };
+var QMSG = { ru: 'Пришлите, пожалуйста, мои результаты экспресс-проверки: ', en: 'Please send me my quick check results: ', de: 'Bitte senden Sie mir mein Ergebnis des Schnell-Checks: ' };
 var qAns = {}, qShown = false, qLang = 'ru', qOpen = false;
 function openQuiz() { qOpen = true; renderQuiz(qLang); }
 function toggleQuiz() { qOpen = !qOpen; renderQuiz(qLang); }
@@ -374,6 +376,7 @@ function renderQuiz(lang) {
   document.getElementById('qz-title').textContent = q.title;
   document.getElementById('qz-sub').textContent = q.sub;
   var st = document.getElementById('qz-start'); st.textContent = qOpen ? QCLOSE[lang] : QSTART[lang]; st.onclick = toggleQuiz; st.className = qOpen ? 'btn ghost' : 'btn'; st.setAttribute('aria-expanded', qOpen); st.setAttribute('aria-controls', 'qz-body');
+  st.style.display = qShown && qOpen ? 'none' : '';
   document.getElementById('qz-body').style.display = qOpen ? 'flex' : 'none';
   document.getElementById('quiz').style.display = qOpen ? '' : 'none';
   document.getElementById('hero-quiz').onclick = openQuiz;
@@ -400,7 +403,9 @@ function renderQuiz(lang) {
     r.weak.forEach(function (c) { var li = el('div', 'li'); var s = el('span'); s.style.cssText = 'width:8px;height:8px;border-radius:999px;background:#D4A84B;flex-shrink:0;margin-top:8px'; li.appendChild(s); li.appendChild(el('span', null, q.cats[c])); res.appendChild(li); });
   }
   var row2 = el('div'); row2.style.cssText = 'display:flex;flex-wrap:wrap;gap:12px;padding-top:8px';
-  var a = el('a', 'btn', L[lang].heroCta1); a.href = '#check'; row2.appendChild(a);
+  var cb = el('button', 'btn ghost', QCLOSE[lang]); cb.type = 'button'; cb.addEventListener('click', function () { qOpen = false; renderQuiz(qLang); var pc = document.getElementById('hero-quiz'); if (pc) pc.scrollIntoView({ behavior: 'smooth', block: 'center' }); }); row2.appendChild(cb);
+  var mb = el('a', 'btn', QMAIL[lang]); mb.href = '#contact'; mb.addEventListener('click', function () { var m = document.getElementById('f-msg'); if (m && !m.value) m.value = QMSG[lang] + r.score + ' ' + q.points + ' — ' + tr[0] + '.'; setTimeout(function () { var e = document.getElementById('f-mail'); if (e) e.focus({ preventScroll: true }); }, 400); }); row2.appendChild(mb);
+  var a = el('a', 'btn ghost', L[lang].heroCta1); a.href = '#check'; row2.appendChild(a);
   var rb = el('button', 'btn ghost', q.restart); rb.type = 'button'; rb.addEventListener('click', function () { qAns = {}; qShown = false; renderQuiz(qLang); document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' }); }); row2.appendChild(rb);
   res.appendChild(row2);
 }
