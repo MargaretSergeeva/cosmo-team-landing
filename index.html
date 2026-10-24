@@ -485,6 +485,9 @@ document.getElementById('hero-quiz').addEventListener('click', function () { var
 document.querySelectorAll('[data-lang]').forEach(function (b) { b.addEventListener('click', function () { render(b.getAttribute('data-lang')); }); });
 var start = 'ru'; try { start = localStorage.getItem('lang') || 'ru'; } catch (e) {}
 render(L[start] ? start : 'ru');
+
+function quizFromHash() { if (location.hash === '#quiz' && !qOpen) { openQuiz(); setTimeout(function () { document.getElementById('quiz').scrollIntoView(); }, 50); } }
+window.addEventListener('hashchange', quizFromHash); quizFromHash();
 </script>
 </body>
 </html>
