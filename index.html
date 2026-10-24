@@ -74,6 +74,21 @@ footer a{color:var(--muted)}
 .opts button[aria-pressed=true]{background:var(--nebula);border-color:var(--nebula);color:var(--bg);font-weight:600}
 .btn:disabled{opacity:.45;cursor:not-allowed}
 .qres{background:var(--nebula-soft);border:1px solid var(--nebula);border-radius:12px;padding:32px;display:flex;flex-direction:column;gap:16px}
+
+/* accents: brand palette 2026-10-24 (nebula violet, aurora green), used sparingly */
+:root{--violet:#8B70FF;--violet-soft:#2A2259;--aurora:#5EDC9A}
+.eyebrow{color:var(--violet)}
+.hero{background:radial-gradient(600px 380px at 85% 30%, rgba(139,112,255,.16), transparent 70%)}
+.band{background:linear-gradient(180deg, rgba(42,34,89,.45), rgba(20,27,56,.85) 60%)}
+.grid > .card{border-top:2px solid var(--line)}
+.grid > .card:nth-child(4n+1){border-top-color:var(--glow)}
+.grid > .card:nth-child(4n+2){border-top-color:var(--violet)}
+.grid > .card:nth-child(4n+3){border-top-color:var(--aurora)}
+.grid > .card:nth-child(4n+4){border-top-color:var(--gold)}
+.grid > .card:nth-child(4n+2) .num{color:var(--violet)}
+.grid > .card:nth-child(4n+3) .num{color:var(--aurora)}
+.grid > .card:nth-child(4n+4) .num{color:var(--gold)}
+.check .r,.qres{background:linear-gradient(160deg, var(--slab), var(--violet-soft))}
 </style>
 </head>
 <body>
