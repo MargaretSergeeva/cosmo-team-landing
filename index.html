@@ -112,24 +112,9 @@ footer a{color:var(--muted)}
     <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding-top:8px;max-width:560px">
       <a class="btn" href="#check" data-k="heroCta1" style="text-align:center;padding:14px 12px"></a><a class="btn ghost" href="#quiz" id="hero-quiz" data-k="heroCta2" style="text-align:center;padding:14px 12px;background:#4FD1E8;border-color:#4FD1E8;color:#0B0E1A;font-weight:600"></a>
     </div>
-    <div class="facts" id="facts"></div>
   </div>
 </section>
 
-<section aria-labelledby="fund-title"><div class="wrap" style="padding:0 24px 72px">
-  <div style="border:1px solid #FFB547;background:rgba(255,181,71,.08);border-radius:12px;padding:32px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between">
-    <div style="flex:999 1 480px;min-width:0;display:flex;flex-direction:column;gap:12px">
-      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap"><span style="background:#FFB547;color:#0B0E1A;font-weight:700;font-size:12px;letter-spacing:.08em;padding:4px 10px;border-radius:999px">KfW</span><span class="eyebrow" style="color:#FFB547" data-k="fundEyebrow"></span></div>
-      <h2 id="fund-title" style="font-weight:700;font-size:clamp(26px,3.5vw,36px);line-height:1.15" data-k="fundTitle"></h2>
-      <p style="margin:0;max-width:680px;font-size:17px;line-height:26px;color:#D9DDEA" data-k="fundText"></p>
-    </div>
-    <div style="flex:1 0 auto;display:flex;flex-direction:column;gap:10px">
-      <a class="btn" href="#contact" style="background:#FFB547;color:#0B0E1A" data-k="fundCta"></a>
-      <button class="btn ghost" type="button" id="fin-toggle" aria-expanded="false" aria-controls="fin-panel" style="border-color:#FFB547;color:#FFB547"></button>
-    </div>
-    <div id="fin-panel" style="display:none;flex-basis:100%;border-top:1px solid rgba(255,181,71,.35);padding-top:24px;flex-direction:column;gap:24px"></div>
-  </div>
-</div></section>
 
 <section class="band"><div class="wrap" style="display:flex;flex-direction:column;gap:40px;padding:80px 24px">
   <div style="display:flex;flex-direction:column;gap:8px"><span class="eyebrow" data-k="painsEyebrow"></span><h2 data-k="painsTitle"></h2></div>
@@ -207,6 +192,21 @@ footer a{color:var(--muted)}
       <span class="muted" style="font-size:13px;line-height:18px" data-k="fNote"></span>
     </div>
   </form>
+</div></section>
+
+<section aria-labelledby="fund-title"><div class="wrap" style="padding:72px 24px">
+  <div style="border:1px solid #FFB547;background:rgba(255,181,71,.08);border-radius:12px;padding:32px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between">
+    <div style="flex:999 1 480px;min-width:0;display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap"><span style="background:#FFB547;color:#0B0E1A;font-weight:700;font-size:12px;letter-spacing:.08em;padding:4px 10px;border-radius:999px">KfW</span><span class="eyebrow" style="color:#FFB547" data-k="fundEyebrow"></span></div>
+      <h2 id="fund-title" style="font-weight:700;font-size:clamp(26px,3.5vw,36px);line-height:1.15" data-k="fundTitle"></h2>
+      <p style="margin:0;max-width:680px;font-size:17px;line-height:26px;color:#D9DDEA" data-k="fundText"></p>
+    </div>
+    <div style="flex:1 0 auto;display:flex;flex-direction:column;gap:10px">
+      <a class="btn" href="#contact" style="background:#FFB547;color:#0B0E1A" data-k="fundCta"></a>
+      <button class="btn ghost" type="button" id="fin-toggle" aria-expanded="false" aria-controls="fin-panel" style="border-color:#FFB547;color:#FFB547"></button>
+    </div>
+    <div id="fin-panel" style="display:none;flex-basis:100%;border-top:1px solid rgba(255,181,71,.35);padding-top:24px;flex-direction:column;gap:24px"></div>
+  </div>
 </div></section>
 
 <footer style="border-top:1px solid var(--line)"><div class="in">
@@ -403,8 +403,8 @@ function render(lang) {
   document.documentElement.lang = lang;
   document.querySelectorAll('[data-k]').forEach(function (n) { n.textContent = t[n.getAttribute('data-k')]; });
   document.querySelectorAll('[data-lang]').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-lang') === lang); });
-  var f = document.getElementById('facts'); f.innerHTML = '';
-  t.facts.forEach(function (x) { var d = el('div'); d.appendChild(el('b', null, x[0])); d.appendChild(el('span', null, x[1])); f.appendChild(d); });
+  var f = document.getElementById('facts'); if (f) { f.innerHTML = '';
+  t.facts.forEach(function (x) { var d = el('div'); d.appendChild(el('b', null, x[0])); d.appendChild(el('span', null, x[1])); f.appendChild(d); }); }
   var p = document.getElementById('pains'); p.innerHTML = '';
   t.pains.forEach(function (x) { var c = el('div', 'card'); c.appendChild(el('h3', null, x[0])); c.appendChild(el('p', null, x[1])); p.appendChild(c); });
   var i = document.getElementById('incl'); i.innerHTML = '';
